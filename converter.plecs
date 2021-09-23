@@ -23,9 +23,10 @@ Plecs {
   MaxConsecutiveZCs "1000"
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
-  InitializationCommands "D = 0.499999;\nfs = 50e3;\nTs = 1/fs;\n\nC = 60e-6;"
-"\n\nVg = 18;\nV = 8;\nM = V/Vg;\n\nP = 12;\nR = (V*V)/P;\n\nL = ((1-M)*Ts*R*D"
-"*D)/(2*M*M);\nLc = (1-M)*R*Ts/2;\n\na = L/Lc;\n\nipk = (2*V)/(R*sqrt(a));"
+  InitializationCommands "D = 0.35;\nfs = 50e3;\nTs = 1/fs;\n\nC = 60e-6;\n\nV"
+"g = 18;\nV = 8;\nM = V/Vg;\n\nP = 12;\nR = (V*V)/P;\n\nLmath = ((1-M)*Ts*R*D*"
+"D)/(2*M*M);\nL = 18.375e-6;\nLc = (1-M)*R*Ts/2;\n\na = L/Lc;\n\nipk = (2*V)/("
+"R*sqrt(a));"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -49,10 +50,10 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [3, 31; 1863, 1030]
-    ZoomFactor    2.2459
-    SliderPosition [0, 0]
-    ShowBrowser   on
+    Location      [0, 0; 1281, 873]
+    ZoomFactor    2.01622
+    SliderPosition [50, 0]
+    ShowBrowser   off
     BrowserWidth  329
     Component {
       Type          DCVoltageSource
@@ -71,7 +72,7 @@ Plecs {
       Type          Constant
       Name          "D"
       Show          on
-      Position      [80, 210]
+      Position      [95, 305]
       Direction     right
       Flipped       off
       Frame         [-10, -10; 10, 10]
@@ -93,7 +94,7 @@ Plecs {
       SrcComponent  "Components/Control/Modulators/Sawtooth PWM"
       Name          "Sawtooth PWM"
       Show          on
-      Position      [165, 210]
+      Position      [165, 305]
       Direction     up
       Flipped       off
       Frame         [-20, -20; 20, 20]
@@ -155,52 +156,6 @@ Plecs {
       Position      [320, 150]
       Direction     left
       Flipped       off
-    }
-    Component {
-      Type          MosfetWithDiode
-      Name          "FETD"
-      Show          off
-      Position      [205, 150]
-      Direction     left
-      Flipped       off
-      Parameter {
-        Variable      "Ron"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "s_init"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "thermal"
-        Value         ""
-        Show          off
-      }
-      Parameter {
-        Variable      "T_init"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
-      Type          Inductor
-      Name          "L"
-      Show          on
-      Position      [275, 150]
-      Direction     left
-      Flipped       off
-      Parameter {
-        Variable      "L"
-        Value         "L"
-        Show          off
-      }
-      Parameter {
-        Variable      "i_init"
-        Value         "0"
-        Show          off
-      }
     }
     Component {
       Type          Capacitor
@@ -372,34 +327,26 @@ Plecs {
       }
     }
     Component {
-      Type          Ammeter
-      Name          "Am3"
-      Show          on
-      Position      [250, 170]
-      Direction     down
-      Flipped       off
-    }
-    Component {
       Type          Scope
       Name          "Switching"
       Show          on
       Position      [295, 40]
       Direction     up
       Flipped       off
-      Location      [961, 31; 1919, 1059]
+      Location      [0, 22; 1440, 900]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAA74AAAPpAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABCAP///wAABaAAAANSAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"wAAAGQAAAACAAAAZAAAAAUAAABkAAAABAAAAGQAAAAHAAAAZAAAAAYAAABkAAAACQAAAGQAAAAIAA"
-"AAZAAAAAEAAABkAAAAugAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACWAAA"
+"wAAAGQAAAACAAAAZAAAAAEAAABkAAAABwAAAGQAAAAGAAAAZAAAAAUAAABkAAAABAAAAGQAAAAJAA"
+"AAZAAAAAgAAABkAAAAtgAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACjAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAkAAAAAQAAAAAAAAPoAAAAACQ="
+"AATAAAAAQAAAAAAAAPoAAAAABM="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -462,10 +409,56 @@ Plecs {
       }
     }
     Component {
+      Type          Inductor
+      Name          "L"
+      Show          on
+      Position      [295, 270]
+      Direction     left
+      Flipped       off
+      Parameter {
+        Variable      "L"
+        Value         "L"
+        Show          off
+      }
+      Parameter {
+        Variable      "i_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Diode
+      Name          "D1"
+      Show          on
+      Position      [245, 205]
+      Direction     down
+      Flipped       off
+      Parameter {
+        Variable      "Vf"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ron"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "thermal"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
       Type          MosfetWithDiode
-      Name          "FETD1"
-      Show          off
-      Position      [255, 220]
+      Name          "Q"
+      Show          on
+      Position      [245, 305]
       Direction     up
       Flipped       off
       Parameter {
@@ -489,79 +482,6 @@ Plecs {
         Show          off
       }
     }
-    Component {
-      Type          Constant
-      Name          "D1"
-      Show          on
-      Position      [80, 310]
-      Direction     right
-      Flipped       off
-      Frame         [-10, -10; 10, 10]
-      LabelPosition [0, 13]
-      LabelAlign    up
-      Parameter {
-        Variable      "Value"
-        Value         "D"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Modulators/Sawtooth PWM"
-      Name          "Sawtooth PWM1"
-      Show          on
-      Position      [165, 310]
-      Direction     up
-      Flipped       off
-      Frame         [-20, -20; 20, 20]
-      LabelPosition [0, 23]
-      LabelAlign    up
-      Parameter {
-        Variable      "config"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "ramp"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "fc"
-        Value         "50e3"
-        Show          off
-      }
-      Parameter {
-        Variable      "offset"
-        Value         "0.5"
-        Show          off
-      }
-      Parameter {
-        Variable      "input_limits"
-        Value         "[0 1]"
-        Show          off
-      }
-      Parameter {
-        Variable      "output_values"
-        Value         "[0 1]"
-        Show          off
-      }
-      Terminal {
-        Type          Output
-        Position      [24, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-20, 0]
-        Direction     left
-      }
-    }
     Connection {
       Type          Signal
       SrcComponent  "D"
@@ -571,24 +491,10 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "Am1"
-      SrcTerminal   2
-      DstComponent  "FETD"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
       SrcComponent  "Vg"
       SrcTerminal   1
       Points        [25, 150]
       DstComponent  "Am1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "L"
-      SrcTerminal   2
-      DstComponent  "Am2"
       DstTerminal   1
     }
     Connection {
@@ -600,33 +506,24 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "C"
+      SrcComponent  "R"
       SrcTerminal   2
-      Points        [370, 270]
+      Points        [415, 270]
       Branch {
-        Points        [250, 270]
+        Points        [370, 270]
         Branch {
-          Points        [250, 255; 255, 255]
-          DstComponent  "FETD1"
+          DstComponent  "C"
           DstTerminal   2
         }
         Branch {
-          Points        [25, 270]
-          DstComponent  "Vg"
+          DstComponent  "L"
           DstTerminal   2
         }
       }
       Branch {
-        Points        [415, 270]
-        Branch {
-          DstComponent  "R"
-          DstTerminal   2
-        }
-        Branch {
-          Points        [490, 270]
-          DstComponent  "Vm1"
-          DstTerminal   2
-        }
+        Points        [490, 270]
+        DstComponent  "Vm1"
+        DstTerminal   2
       }
     }
     Connection {
@@ -649,28 +546,6 @@ Plecs {
           DstTerminal   2
         }
       }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "FETD"
-      SrcTerminal   2
-      Points        [250, 150]
-      Branch {
-        DstComponent  "L"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "Am3"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Am3"
-      SrcTerminal   1
-      Points        [250, 195; 255, 195]
-      DstComponent  "FETD1"
-      DstTerminal   1
     }
     Connection {
       Type          Signal
@@ -696,41 +571,46 @@ Plecs {
       }
     }
     Connection {
-      Type          Signal
+      Type          Wire
       SrcComponent  "D1"
-      SrcTerminal   1
-      DstComponent  "Sawtooth PWM1"
+      SrcTerminal   2
+      Points        [245, 150]
+      Branch {
+        DstComponent  "Am1"
+        DstTerminal   2
+      }
+      Branch {
+        DstComponent  "Am2"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Q"
+      SrcTerminal   2
+      Points        [245, 380; 25, 380]
+      DstComponent  "Vg"
       DstTerminal   2
     }
     Connection {
       Type          Signal
       SrcComponent  "Sawtooth PWM"
       SrcTerminal   1
-      Points        [190, 210]
-      Branch {
-        Points        [205, 210]
-        DstComponent  "FETD"
-        DstTerminal   3
-      }
-      Branch {
-        Points        [165, 210; 165, 35]
-        DstComponent  "Switching"
-        DstTerminal   1
-      }
+      DstComponent  "Q"
+      DstTerminal   3
     }
     Connection {
-      Type          Signal
-      SrcComponent  "Sawtooth PWM1"
+      Type          Wire
+      SrcComponent  "L"
       SrcTerminal   1
-      Points        [215, 310; 215, 220; 220, 220]
+      Points        [245, 270]
       Branch {
-        DstComponent  "FETD1"
-        DstTerminal   3
+        DstComponent  "D1"
+        DstTerminal   1
       }
       Branch {
-        Points        [220, 45]
-        DstComponent  "Switching"
-        DstTerminal   2
+        DstComponent  "Q"
+        DstTerminal   1
       }
     }
   }
