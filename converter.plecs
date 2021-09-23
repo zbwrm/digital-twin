@@ -412,8 +412,8 @@ Plecs {
       Type          Inductor
       Name          "L"
       Show          on
-      Position      [295, 270]
-      Direction     left
+      Position      [310, 270]
+      Direction     right
       Flipped       off
       Parameter {
         Variable      "L"
@@ -517,7 +517,7 @@ Plecs {
         }
         Branch {
           DstComponent  "L"
-          DstTerminal   2
+          DstTerminal   1
         }
       }
       Branch {
@@ -601,16 +601,16 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "L"
+      SrcComponent  "D1"
       SrcTerminal   1
       Points        [245, 270]
       Branch {
-        DstComponent  "D1"
+        DstComponent  "Q"
         DstTerminal   1
       }
       Branch {
-        DstComponent  "Q"
-        DstTerminal   1
+        DstComponent  "L"
+        DstTerminal   2
       }
     }
   }
