@@ -25,8 +25,8 @@ Plecs {
   AssertionAction "1"
   InitializationCommands "Rct = 9550;\nCct = 1.8e-9;\n\nRsh = 0.05;\n\nfs = .5"
 " * 1.72 * (1/Rct) * (1/Cct);\nTs = 1/fs;\n\nC = 60e-6;\n\nVg = 18;\nV = 8;\nM"
-" = V/Vg;\n\nP = 12;\nR = (V*V)/P;\n\nL = 18.375e-6;\nLc = (1-M)*R*Ts/2;\n\na "
-"= L/Lc;"
+" = V/Vg;\n\nP = 12;\nR = (V*V)/P;\n\nL = 18.375e-6;\nLc = (1-M)*R*Ts/2;\nLm ="
+" 18.24e-6\n\na = L/Lc;"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -50,7 +50,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1, 34; 1720, 1008]
+    Location      [2, 31; 1721, 1030]
     ZoomFactor    1.13412
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -241,12 +241,12 @@ Plecs {
       Type          Inductor
       Name          "L"
       Show          on
-      Position      [505, 80]
+      Position      [505, 60]
       Direction     right
       Flipped       off
       Parameter {
         Variable      "L"
-        Value         "L"
+        Value         "Lm"
         Show          off
       }
       Parameter {
@@ -2060,7 +2060,7 @@ Plecs {
       Type          Resistor
       Name          "R1"
       Show          off
-      Position      [460, 170]
+      Position      [460, 185]
       Direction     up
       Flipped       off
       Parameter {
@@ -2073,7 +2073,7 @@ Plecs {
       Type          Ammeter
       Name          "Am2"
       Show          off
-      Position      [555, 80]
+      Position      [555, 70]
       Direction     right
       Flipped       off
     }
@@ -2087,9 +2087,9 @@ Plecs {
     }
     Component {
       Type          Scope
-      Name          "Scope"
+      Name          "Ish"
       Show          on
-      Position      [500, 230]
+      Position      [495, 265]
       Direction     up
       Flipped       off
       Location      [0, 27; 1440, 927]
@@ -2209,7 +2209,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "R"
-        Value         "3660"
+        Value         "4210"
         Show          on
       }
     }
@@ -2299,7 +2299,7 @@ Plecs {
     }
     Component {
       Type          Scope
-      Name          "Scope1"
+      Name          "Gate Signal"
       Show          on
       Position      [395, 295]
       Direction     up
@@ -2345,6 +2345,104 @@ Plecs {
         Scaling           0
         PhaseDisplay      0
         ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Voltmeter
+      Name          "Vm2"
+      Show          off
+      Position      [515, 185]
+      Direction     up
+      Flipped       off
+    }
+    Component {
+      Type          Voltmeter
+      Name          "Vm3"
+      Show          off
+      Position      [535, 215]
+      Direction     up
+      Flipped       off
+    }
+    Component {
+      Type          Scope
+      Name          "Vsh / Vd"
+      Show          on
+      Position      [620, 190]
+      Direction     up
+      Flipped       off
+      Location      [499, 346; 1268, 759]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAwEAAAGCAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
+"AAAAGQAAAAFAAAAZAAAAAYAAABkAAAABwAAAGQAAAABAAAAZAAAAAIAAABkAAAAAwAAAGQAAAAIAA"
+"AAZAAAAAkAAABkAAAA2QAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAkAAAAAQAAAAAAAAPoAAAAACQ="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
+"AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      Axes          "2"
+      TimeRange     "0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
         Axis {
           Name          ""
           AutoScale     1
@@ -2431,48 +2529,19 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "R"
+      SrcComponent  "Q"
       SrcTerminal   2
-      Points        [630, 80]
-      Branch {
-        Points        [685, 80]
-        DstComponent  "Vm1"
-        DstTerminal   2
-      }
-      Branch {
-        Points        [585, 80]
-        Branch {
-          DstComponent  "C"
-          DstTerminal   2
-        }
-        Branch {
-          DstComponent  "Am2"
-          DstTerminal   1
-        }
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "D1"
-      SrcTerminal   1
-      Points        [460, 80]
-      Branch {
-        DstComponent  "Q"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "L"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "R1"
-      SrcTerminal   1
       Points        [460, 150]
       Branch {
-        DstComponent  "Q"
-        DstTerminal   2
+        Points        [460, 165]
+        Branch {
+          DstComponent  "R1"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "Vm2"
+          DstTerminal   1
+        }
       }
       Branch {
         Points        [140, 150; 140, 205]
@@ -2484,6 +2553,7 @@ Plecs {
       Type          Wire
       SrcComponent  "Am2"
       SrcTerminal   2
+      Points        [530, 70; 530, 60]
       DstComponent  "L"
       DstTerminal   1
     }
@@ -2497,32 +2567,32 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "R1"
+      SrcComponent  "Vg"
       SrcTerminal   2
-      DstComponent  "Am3"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Ground2"
-      SrcTerminal   1
-      Points        [460, 275]
+      Points        [375, 275; 460, 275]
       Branch {
-        Points        [375, 275]
-        DstComponent  "Vg"
-        DstTerminal   2
+        Points        [460, 335]
+        Branch {
+          DstComponent  "Ground2"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [515, 335]
+          Branch {
+            DstComponent  "Vm2"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [535, 335]
+            DstComponent  "Vm3"
+            DstTerminal   2
+          }
+        }
       }
       Branch {
         DstComponent  "Am3"
         DstTerminal   2
       }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Am3"
-      SrcTerminal   3
-      DstComponent  "Scope"
-      DstTerminal   1
     }
     Connection {
       Type          Signal
@@ -2609,7 +2679,7 @@ Plecs {
       }
       Branch {
         Points        [360, 295]
-        DstComponent  "Scope1"
+        DstComponent  "Gate Signal"
         DstTerminal   1
       }
     }
@@ -2617,9 +2687,91 @@ Plecs {
       Type          Wire
       SrcComponent  "R8"
       SrcTerminal   1
-      Points        [190, 25]
-      DstComponent  "R7"
+      Points        [190, 25; 130, 25]
+      Branch {
+        DstComponent  "R7"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [85, 25; 85, 190]
+        DstComponent  "UC2844"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Am3"
+      SrcTerminal   3
+      Points        [475, 250; 465, 250]
+      DstComponent  "Ish"
       DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "R"
+      SrcTerminal   2
+      Points        [630, 70]
+      Branch {
+        Points        [685, 70]
+        DstComponent  "Vm1"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [585, 70]
+        Branch {
+          DstComponent  "Am2"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "C"
+          DstTerminal   2
+        }
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "D1"
+      SrcTerminal   1
+      Points        [460, 70]
+      Branch {
+        Points        [460, 90]
+        Branch {
+          DstComponent  "Q"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [535, 90]
+          DstComponent  "Vm3"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [475, 70; 475, 60]
+        DstComponent  "L"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "R1"
+      SrcTerminal   2
+      DstComponent  "Am3"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm2"
+      SrcTerminal   3
+      DstComponent  "Vsh / Vd"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm3"
+      SrcTerminal   3
+      Points        [570, 215; 570, 195]
+      DstComponent  "Vsh / Vd"
+      DstTerminal   2
     }
   }
 }
