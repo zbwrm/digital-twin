@@ -2209,7 +2209,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "R"
-        Value         "4210"
+        Value         "2833"
         Show          on
       }
     }
