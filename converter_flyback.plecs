@@ -57,7 +57,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [2, 34; 1714, 1033]
+    Location      [8, 31; 1720, 1030]
     ZoomFactor    1.13412
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -2464,7 +2464,7 @@ Plecs {
       }
       Parameter {
         Variable      "n"
-        Value         "turns"
+        Value         "[1.43 1]"
         Show          off
       }
       Parameter {
@@ -2728,6 +2728,44 @@ Plecs {
         Show          off
       }
     }
+    Component {
+      Type          PulseGenerator
+      Name          "Pulse\nGenerator"
+      Show          on
+      Position      [320, 110]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Hi"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Lo"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "f"
+        Value         "50000"
+        Show          off
+      }
+      Parameter {
+        Variable      "DutyCycle"
+        Value         "0.35"
+        Show          off
+      }
+      Parameter {
+        Variable      "Delay"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
     Connection {
       Type          Wire
       SrcComponent  "R2"
@@ -2972,22 +3010,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "UC2844"
-      SrcTerminal   1
-      Points        [360, 220]
-      Branch {
-        Points        [425, 220]
-        DstComponent  "Q"
-        DstTerminal   3
-      }
-      Branch {
-        Points        [360, 260]
-        DstComponent  "Gate Signal"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Periodic Average"
       SrcTerminal   1
       DstComponent  "Display"
@@ -3120,6 +3142,21 @@ Plecs {
       SrcTerminal   1
       DstComponent  "Display8"
       DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "UC2844"
+      SrcTerminal   1
+      Points        [360, 220; 360, 260]
+      DstComponent  "Gate Signal"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Pulse\nGenerator"
+      SrcTerminal   1
+      DstComponent  "Q"
+      DstTerminal   3
     }
   }
 }
