@@ -24,16 +24,16 @@ Plecs {
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
   InitializationCommands "% givens\nRct = 9550;\nCct = 1.8e-9;\nRsh = 0.05;\nC"
-"0 = 60e-6;\nVg = 18;\nV0 = 10;\nP = 20;\na = 1.43; % turns ratio for transfor"
-"mer\n\n% transformer turns\nturns = [a 1];\n\n% output resistance size\nR0 = "
-"(V0*V0)/P;\n\n% Q output capacitance values\nCq_datasheet = 425e-12;\nCq_meas"
-"ured = 1.4139e-9;\nCq = Cq_measured;\n\n% magnetizing inductance values\nLmea"
-"sured = 3.925e-6;\nL = Lmeasured;\n\n% timing calculations\nfs = .5 * 1.72 * "
+"0 = 60e-6;\nVg = 18;\nV0 = 7;\nP = 20;\na = 1.43; % turns ratio for transform"
+"er\n\n% transformer turns\nturns = [a 1];\n\n% output resistance size\nR0 = ("
+"V0*V0)/P;\n\n% Q output capacitance values\nCq_datasheet = 425e-12;\nCq_measu"
+"red = 1.4139e-9;\nCq = Cq_datasheet;\n\n% magnetizing inductance values\nLmea"
+"sured = 2.925e-6;\nL = Lmeasured;\n\n% timing calculations\nfs = .5 * 1.72 * "
 "(1/Rct) * (1/Cct);\nTs = 1/fs;\n\n% flyback -> buck calculations\nR = R0 * (a"
 "^2);\nC = C0 / (a^2);\nM = (a * V0) / Vg\nV = V0 * a\n\n% Lcrit/alpha calcula"
 "tions\nLcrit = (1-M)*R*Ts/2;\nalpha = L/Lcrit;\n\n% Ipk calculations\nif alph"
 "a < 1\n\tD = sqrt(alpha)*M;\n\tIpk = V/R*2/sqrt(alpha);\nelse\n\tD = M;\n\tIp"
-"k = V/R*(1+1/alpha);\nend"
+"k = V/R*(1+1/alpha);\nend\n\n% calculate Vcomp\nVcomp = (Ipk * Rsh * 3) + 1.3"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -57,7 +57,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1, 31; 1713, 1030]
+    Location      [2, 34; 1714, 1033]
     ZoomFactor    1.13412
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -147,8 +147,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAGQAAAADAAAAZAAAAAEAAABkAAAACAAAAGQAAAAJAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
-"AAZAAAAAUAAABkAAAA2QAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
+"wAAAGQAAAACAAAAZAAAAAUAAABkAAAABAAAAGQAAAAHAAAAZAAAAAYAAABkAAAACQAAAGQAAAAIAA"
+"AAZAAAAAEAAABkAAAA2QAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAkAAAAAQAAAAAAAAPoAAAAACQ="
@@ -299,7 +299,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [0, 0; 1440, 873]
+        Location      [640, 300; 2080, 1173]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -2023,8 +2023,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAGQAAAADAAAAZAAAAAEAAABkAAAACAAAAGQAAAAJAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
-"AAZAAAAAUAAABkAAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
+"wAAAGQAAAACAAAAZAAAAAUAAABkAAAABAAAAGQAAAAHAAAAZAAAAAYAAABkAAAACQAAAGQAAAAIAA"
+"AAZAAAAAEAAABkAAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAkAAAAAQAAAAAAAAPoAAAAACQ="
@@ -2131,7 +2131,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "R"
-        Value         "14450"
+        Value         "3613"
         Show          on
       }
     }
@@ -2165,7 +2165,7 @@ Plecs {
       Flipped       on
       Parameter {
         Variable      "V"
-        Value         "1.8714"
+        Value         "Vcomp"
         Show          on
       }
     }
@@ -2235,8 +2235,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAGQAAAADAAAAZAAAAAEAAABkAAAACAAAAGQAAAAJAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
-"AAZAAAAAUAAABkAAAAzwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACrAAA"
+"wAAAGQAAAACAAAAZAAAAAEAAABkAAAABwAAAGQAAAAGAAAAZAAAAAUAAABkAAAABAAAAGQAAAAJAA"
+"AAZAAAAAgAAABkAAAAzwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACrAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAkAAAAAQAAAAAAAAPoAAAAACQ="
@@ -2291,7 +2291,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm3"
       Show          off
-      Position      [535, 215]
+      Position      [565, 215]
       Direction     up
       Flipped       off
     }
@@ -2311,8 +2311,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAGQAAAADAAAAZAAAAAEAAABkAAAACAAAAGQAAAAJAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAA"
-"AAZAAAAAUAAABkAAAFjwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
+"wAAAGQAAAACAAAAZAAAAAEAAABkAAAABwAAAGQAAAAGAAAAZAAAAAUAAABkAAAABAAAAGQAAAAJAA"
+"AAZAAAAAgAAABkAAAFjwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "ATIAAAAAQAAAAAAAAPoAAAAACQ="
@@ -2386,7 +2386,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "s"
-        Value         "2"
+        Value         "1"
         Show          off
       }
     }
@@ -2446,24 +2446,6 @@ Plecs {
       }
       Parameter {
         Variable      "v_init"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
-      Type          Inductor
-      Name          "L1"
-      Show          off
-      Position      [460, 40]
-      Direction     up
-      Flipped       off
-      Parameter {
-        Variable      "L"
-        Value         "L"
-        Show          off
-      }
-      Parameter {
-        Variable      "i_init"
         Value         "0"
         Show          off
       }
@@ -2644,6 +2626,108 @@ Plecs {
         Show          off
       }
     }
+    Component {
+      Type          Constant
+      Name          "Constant5"
+      Show          off
+      Position      [720, 555]
+      Direction     right
+      Flipped       off
+      Frame         [-10, -10; 10, 10]
+      LabelPosition [0, 13]
+      LabelAlign    up
+      Parameter {
+        Variable      "Value"
+        Value         "alpha"
+        Show          on
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Display
+      Name          "Display7"
+      Show          off
+      Position      [795, 555]
+      Direction     up
+      Flipped       off
+      Frame         [-41, -11; 41, 11]
+      LabelPosition [0, 14]
+      LabelAlign    up
+      Parameter {
+        Variable      "Notation"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Precision"
+        Value         "4"
+        Show          off
+      }
+    }
+    Component {
+      Type          Inductor
+      Name          "L1"
+      Show          on
+      Position      [460, 40]
+      Direction     down
+      Flipped       off
+      Parameter {
+        Variable      "L"
+        Value         "L"
+        Show          off
+      }
+      Parameter {
+        Variable      "i_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "Constant6"
+      Show          off
+      Position      [720, 600]
+      Direction     right
+      Flipped       off
+      Frame         [-10, -10; 10, 10]
+      LabelPosition [0, 13]
+      LabelAlign    up
+      Parameter {
+        Variable      "Value"
+        Value         "Vcomp"
+        Show          on
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Display
+      Name          "Display8"
+      Show          off
+      Position      [795, 600]
+      Direction     up
+      Flipped       off
+      Frame         [-41, -11; 41, 11]
+      LabelPosition [0, 14]
+      LabelAlign    up
+      Parameter {
+        Variable      "Notation"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Precision"
+        Value         "4"
+        Show          off
+      }
+    }
     Connection {
       Type          Wire
       SrcComponent  "R2"
@@ -2677,6 +2761,70 @@ Plecs {
           Points        [105, 340; 105, 175]
           DstComponent  "UC2844"
           DstTerminal   3
+        }
+      }
+      Branch {
+        Points        [460, 340]
+        Branch {
+          DstComponent  "Ground2"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [460, 335]
+          Branch {
+            Points        [460, 275]
+            Branch {
+              Points        [375, 275]
+              DstComponent  "Vg"
+              DstTerminal   2
+            }
+            Branch {
+              DstComponent  "Am3"
+              DstTerminal   2
+            }
+          }
+          Branch {
+            Points        [515, 335]
+            Branch {
+              DstComponent  "Vm2"
+              DstTerminal   2
+            }
+            Branch {
+              Points        [540, 335]
+              Branch {
+                Points        [565, 335]
+                DstComponent  "Vm3"
+                DstTerminal   2
+              }
+              Branch {
+                Points        [540, 70]
+                Branch {
+                  Points        [575, 70]
+                  Branch {
+                    DstComponent  "C0"
+                    DstTerminal   2
+                  }
+                  Branch {
+                    Points        [605, 70]
+                    Branch {
+                      Points        [645, 70]
+                      DstComponent  "Vm1"
+                      DstTerminal   2
+                    }
+                    Branch {
+                      DstComponent  "R0"
+                      DstTerminal   2
+                    }
+                  }
+                }
+                Branch {
+                  Points        [510, 70]
+                  DstComponent  "T"
+                  DstTerminal   4
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -2749,62 +2897,6 @@ Plecs {
       DstTerminal   1
     }
     Connection {
-      Type          Wire
-      SrcComponent  "Ground2"
-      SrcTerminal   1
-      Points        [460, 335]
-      Branch {
-        Points        [460, 275]
-        Branch {
-          Points        [375, 275]
-          DstComponent  "Vg"
-          DstTerminal   2
-        }
-        Branch {
-          DstComponent  "Am3"
-          DstTerminal   2
-        }
-      }
-      Branch {
-        Points        [515, 335]
-        Branch {
-          DstComponent  "Vm2"
-          DstTerminal   2
-        }
-        Branch {
-          Points        [535, 335]
-          Branch {
-            DstComponent  "Vm3"
-            DstTerminal   2
-          }
-          Branch {
-            Points        [575, 335; 575, 70]
-            Branch {
-              DstComponent  "C0"
-              DstTerminal   2
-            }
-            Branch {
-              Points        [510, 70]
-              DstComponent  "T"
-              DstTerminal   4
-            }
-            Branch {
-              Points        [605, 70]
-              Branch {
-                Points        [645, 70]
-                DstComponent  "Vm1"
-                DstTerminal   2
-              }
-              Branch {
-                DstComponent  "R0"
-                DstTerminal   2
-              }
-            }
-          }
-        }
-      }
-    }
-    Connection {
       Type          Signal
       SrcComponent  "Constant"
       SrcTerminal   1
@@ -2829,7 +2921,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Vm3"
       SrcTerminal   3
-      Points        [550, 155]
+      Points        [585, 215; 585, 155]
       DstComponent  "Vsh / Vd"
       DstTerminal   2
     }
@@ -2837,7 +2929,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Am3"
       SrcTerminal   3
-      Points        [555, 230; 555, 205]
+      Points        [600, 230; 600, 205]
       DstComponent  "Ish"
       DstTerminal   1
     }
@@ -2903,12 +2995,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      Points        [555, 79; 555, 90]
-      DstComponent  "i_I / V"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Vm2"
       SrcTerminal   3
       Points        [530, 145]
@@ -2923,7 +3009,7 @@ Plecs {
       Branch {
         Points        [460, 80]
         Branch {
-          Points        [535, 80]
+          Points        [565, 80]
           DstComponent  "Vm3"
           DstTerminal   1
         }
@@ -2931,7 +3017,7 @@ Plecs {
           Points        [460, 70]
           Branch {
             DstComponent  "L1"
-            DstTerminal   2
+            DstTerminal   1
           }
           Branch {
             Points        [490, 70]
@@ -2994,7 +3080,7 @@ Plecs {
     Connection {
       Type          Wire
       SrcComponent  "L1"
-      SrcTerminal   1
+      SrcTerminal   2
       Points        [460, 15]
       Branch {
         Points        [490, 15]
@@ -3019,6 +3105,20 @@ Plecs {
       SrcComponent  "Constant4"
       SrcTerminal   1
       DstComponent  "Display6"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Constant5"
+      SrcTerminal   1
+      DstComponent  "Display7"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Constant6"
+      SrcTerminal   1
+      DstComponent  "Display8"
       DstTerminal   1
     }
   }
