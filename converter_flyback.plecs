@@ -28,12 +28,12 @@ Plecs {
 "er\n\n% transformer turns\nturns = [a 1];\n\n% output resistance size\nR0 = ("
 "V0*V0)/P;\n\n% Q output capacitance values\nCq_datasheet = 425e-12;\nCq_measu"
 "red = 1.4139e-9;\nCq = Cq_datasheet;\n\n% magnetizing inductance values\nLmea"
-"sured = 2.925e-6;\nL = Lmeasured;\n\n% timing calculations\nfs = .5 * 1.72 * "
+"sured = 2.925e-5;\nL = Lmeasured;\n\n% timing calculations\nfs = .5 * 1.72 * "
 "(1/Rct) * (1/Cct);\nTs = 1/fs;\n\n% flyback -> buck calculations\nR = R0 * (a"
-"^2);\nC = C0 / (a^2);\nM = (a * V0) / Vg\nV = V0 * a\n\n% Lcrit/alpha calcula"
-"tions\nLcrit = (1-M)*R*Ts/2;\nalpha = L/Lcrit;\n\n% Ipk calculations\nif alph"
-"a < 1\n\tD = sqrt(alpha)*M;\n\tIpk = V/R*2/sqrt(alpha);\nelse\n\tD = M;\n\tIp"
-"k = V/R*(1+1/alpha);\nend\n\n% calculate Vcomp\nVcomp = (Ipk * Rsh * 3) + 1.3"
+"^2);\nC = C0 / (a^2);\nV = V0 * a\nM = V / Vg\n\n% Lcrit/alpha calculations\n"
+"Lcrit = (1-M)*R*Ts/2;\nalpha = L/Lcrit;\n\n% Ipk calculations\nif alpha < 1\n"
+"\tD = sqrt(alpha)*M;\n\tIpk = V/R*2/sqrt(alpha);\nelse\n\tD = M;\n\tIpk = V/R"
+"*(1+1/alpha);\nend\n\n% calculate Vcomp\nVcomp = (Ipk * Rsh * 3) + 1.3"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -57,7 +57,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [8, 31; 1720, 1030]
+    Location      [0, 23; 1920, 1031]
     ZoomFactor    1.13412
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -2131,7 +2131,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "R"
-        Value         "3613"
+        Value         "3800"
         Show          on
       }
     }
@@ -2235,8 +2235,8 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"wAAAGQAAAACAAAAZAAAAAEAAABkAAAABwAAAGQAAAAGAAAAZAAAAAUAAABkAAAABAAAAGQAAAAJAA"
-"AAZAAAAAgAAABkAAAAzwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACrAAA"
+"QAAAGQAAAACAAAAZAAAAAMAAABkAAAABAAAAGQAAAAFAAAAZAAAAAYAAABkAAAABwAAAGQAAAAIAA"
+"AAZAAAAAkAAABkAAAAzwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACrAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
 "AAkAAAAAQAAAAAAAAPoAAAAACQ="
@@ -2302,7 +2302,7 @@ Plecs {
       Position      [795, 150]
       Direction     up
       Flipped       off
-      Location      [0, 45; 1440, 900]
+      Location      [365, 225; 1805, 1080]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwIAAAKeAA"
 "ABswAAAMgAAAB4+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAWgAAAAXPw"
@@ -2311,11 +2311,11 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"wAAAGQAAAACAAAAZAAAAAEAAABkAAAABwAAAGQAAAAGAAAAZAAAAAUAAABkAAAABAAAAGQAAAAJAA"
-"AAZAAAAAgAAABkAAAFjwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
+"QAAAGQAAAACAAAAZAAAAAMAAABkAAAABAAAAGQAAAAFAAAAZAAAAAYAAABkAAAABwAAAGQAAAAIAA"
+"AAZAAAAAkAAABkAAAFjwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"ATIAAAAAQAAAAAAAAPoAAAAACQ="
+"ATaAAAAAQAAAAAAAAPoAAAAACQ="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -2386,7 +2386,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "s"
-        Value         "1"
+        Value         "2"
         Show          off
       }
     }
@@ -2728,44 +2728,6 @@ Plecs {
         Show          off
       }
     }
-    Component {
-      Type          PulseGenerator
-      Name          "Pulse\nGenerator"
-      Show          on
-      Position      [320, 110]
-      Direction     right
-      Flipped       off
-      Parameter {
-        Variable      "Hi"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Lo"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "f"
-        Value         "50000"
-        Show          off
-      }
-      Parameter {
-        Variable      "DutyCycle"
-        Value         "0.35"
-        Show          off
-      }
-      Parameter {
-        Variable      "Delay"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
     Connection {
       Type          Wire
       SrcComponent  "R2"
@@ -2808,59 +2770,56 @@ Plecs {
           DstTerminal   1
         }
         Branch {
-          Points        [460, 335]
+          Points        [460, 275]
           Branch {
-            Points        [460, 275]
-            Branch {
-              Points        [375, 275]
-              DstComponent  "Vg"
-              DstTerminal   2
-            }
-            Branch {
-              DstComponent  "Am3"
-              DstTerminal   2
-            }
+            Points        [375, 275]
+            DstComponent  "Vg"
+            DstTerminal   2
           }
           Branch {
-            Points        [515, 335]
+            DstComponent  "Am3"
+            DstTerminal   2
+          }
+        }
+        Branch {
+          Points        [515, 340]
+          Branch {
+            DstComponent  "Vm2"
+            DstTerminal   2
+          }
+          Branch {
+            Points        [540, 340]
             Branch {
-              DstComponent  "Vm2"
-              DstTerminal   2
-            }
-            Branch {
-              Points        [540, 335]
+              Points        [540, 70]
               Branch {
-                Points        [565, 335]
-                DstComponent  "Vm3"
-                DstTerminal   2
-              }
-              Branch {
-                Points        [540, 70]
+                Points        [575, 70]
                 Branch {
-                  Points        [575, 70]
+                  DstComponent  "C0"
+                  DstTerminal   2
+                }
+                Branch {
+                  Points        [605, 70]
                   Branch {
-                    DstComponent  "C0"
+                    Points        [645, 70]
+                    DstComponent  "Vm1"
                     DstTerminal   2
                   }
                   Branch {
-                    Points        [605, 70]
-                    Branch {
-                      Points        [645, 70]
-                      DstComponent  "Vm1"
-                      DstTerminal   2
-                    }
-                    Branch {
-                      DstComponent  "R0"
-                      DstTerminal   2
-                    }
+                    DstComponent  "R0"
+                    DstTerminal   2
                   }
                 }
-                Branch {
-                  Points        [510, 70]
-                  DstComponent  "T"
-                  DstTerminal   4
-                }
               }
+              Branch {
+                Points        [510, 70]
+                DstComponent  "T"
+                DstTerminal   4
+              }
+            }
+            Branch {
+              Points        [565, 340]
+              DstComponent  "Vm3"
+              DstTerminal   2
             }
           }
         }
@@ -3147,16 +3106,17 @@ Plecs {
       Type          Signal
       SrcComponent  "UC2844"
       SrcTerminal   1
-      Points        [360, 220; 360, 260]
-      DstComponent  "Gate Signal"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Pulse\nGenerator"
-      SrcTerminal   1
-      DstComponent  "Q"
-      DstTerminal   3
+      Points        [335, 220]
+      Branch {
+        Points        [400, 220; 400, 260]
+        DstComponent  "Gate Signal"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [335, 110]
+        DstComponent  "Q"
+        DstTerminal   3
+      }
     }
   }
 }
