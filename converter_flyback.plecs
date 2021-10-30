@@ -2300,7 +2300,7 @@ Plecs {
       Position      [795, 150]
       Direction     up
       Flipped       off
-      Location      [0, 45; 1440, 900]
+      Location      [365, 225; 1805, 1080]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwIAAAKeAA"
 "ABswAAAMgAAAB4+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAWgAAAAXPw"
@@ -2384,7 +2384,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "s"
-        Value         "1"
+        Value         "2"
         Show          off
       }
     }
@@ -2462,7 +2462,7 @@ Plecs {
       }
       Parameter {
         Variable      "n"
-        Value         "turns"
+        Value         "[1.43 1]"
         Show          off
       }
       Parameter {
@@ -2901,22 +2901,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "UC2844"
-      SrcTerminal   1
-      Points        [360, 220]
-      Branch {
-        Points        [425, 220]
-        DstComponent  "Q"
-        DstTerminal   3
-      }
-      Branch {
-        Points        [360, 260]
-        DstComponent  "Gate Signal"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "Periodic Average"
       SrcTerminal   1
       DstComponent  "Display"
@@ -3064,6 +3048,22 @@ Plecs {
       Points        [160, 400; 105, 400]
       DstComponent  "Switch"
       DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "UC2844"
+      SrcTerminal   1
+      Points        [335, 220]
+      Branch {
+        Points        [400, 220; 400, 260]
+        DstComponent  "Gate Signal"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [335, 110]
+        DstComponent  "Q"
+        DstTerminal   3
+      }
     }
   }
 }
