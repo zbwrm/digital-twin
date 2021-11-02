@@ -23,15 +23,15 @@ Plecs {
   MaxConsecutiveZCs "1000"
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
-  InitializationCommands "% design parameters\nVg = 18; % volts\nVo = 10; % vo"
-"lts\nPo = 20; % watts\nD  = 0.35; % unitless\nalpha = 0.8; % unitless\n\n% si"
-"mulation parameters\nRct = 9550;\nCct = 1.8e-9;\nRsh = 0.05;\nCo = 60e-6;\nRo"
-" = (Vo*Vo)/Po;\n\n% Q output capacitance values\nCq_datasheet = 425e-12;\nCq_"
-"measured = 1.4139e-9;\nCq = Cq_datasheet;\n\n% calculate transformer turns\na"
-" = Vg * 1/Vo * (D/(sqrt(alpha)-D));\nturns = [a 1];\n\n% timing calculations"
+  InitializationCommands "% design parameters\nVg = 18; % volts\nVo = 3; % vol"
+"ts\nPo = 20; % watts\nD  = 0.35; % unitless\nalpha = 0.8; % unitless\n\n% sim"
+"ulation parameters\nRct = 9550;\nCct = 1.8e-9;\nRsh = 0.05;\nCo = 52.6e-6;\nR"
+"o = (Vo*Vo)/Po;\n\n% Q output capacitance values\nCq_datasheet = 425e-12;\nCq"
+"_measured = 1.4139e-9;\nCq = Cq_datasheet;\n\n% calculate transformer turns\n"
+"a = Vg * 1/Vo * (D/(sqrt(alpha)-D));\nturns = [a 1];\n\n% timing calculations"
 "\nfs = .5 * 1.72 * (1/Rct) * (1/Cct);\nTs = 1/fs;\n\n% calculate magnetizing "
-"inductance values\nL = (D^2 * Ts * Vg^2) / (2 * Po)\n\n% calculate ipk'\nipk "
-"= D * Ts * Vg / L\n\n% calculate Vcomp\nVcomp = (ipk * Rsh * 3) + 1.309"
+"inductance values\nL = (D^2 * Ts * Vg^2) / (2 * Po)\n\n\n% calculate ipk'\nip"
+"k = D * Ts * Vg / L\n\n% calculate Vcomp\nVcomp = (ipk * Rsh * 3) + 1.309"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -55,7 +55,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [0, 0; 1261, 873]
+    Location      [0, 23; 1920, 1031]
     ZoomFactor    1.17038
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -140,16 +140,16 @@ Plecs {
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABCAP///wAABaAAAAM7AAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABaAAAAM8AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"gAAAGQAAAAHAAAAZAAAAAQAAABkAAAABQAAAGQAAAACAAAAZAAAAAMAAABkAAAAAQAAAGQAAAAIAA"
-"AAZAAAAAkAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAGQAAAAIAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAAAwAAAGQAAAACAA"
+"AAZAAAAAEAAABkAAAA2QAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AATAAAAAQAAAAAAAAPoAAAAABM="
+"AAkAAAAAQAAAAAAAAPoAAAAACQ="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -215,7 +215,7 @@ Plecs {
       Type          MosfetWithDiode
       Name          "Q"
       Show          on
-      Position      [460, 110]
+      Position      [450, 130]
       Direction     up
       Flipped       off
       Parameter {
@@ -2012,26 +2012,26 @@ Plecs {
       Position      [795, 205]
       Direction     up
       Flipped       off
-      Location      [0, 22; 1440, 900]
+      Location      [0, 27; 1440, 905]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABCAP///wAABaAAAANSAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABaAAAANTAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"gAAAGQAAAAHAAAAZAAAAAQAAABkAAAABQAAAGQAAAACAAAAZAAAAAMAAABkAAAAAQAAAGQAAAAIAA"
-"AAZAAAAAkAAABkAAAA2gAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAGQAAAAIAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAAAwAAAGQAAAACAA"
+"AAZAAAAAEAAABkAAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AATAAAAAQAAAAAAAAPoAAAAABM="
+"AAkAAAAAQAAAAAAAAPoAAAAACQ="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -2224,20 +2224,20 @@ Plecs {
       Position      [795, 260]
       Direction     up
       Flipped       off
-      Location      [0, 22; 1440, 900]
+      Location      [0, 27; 1440, 905]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABCAP///wAABaAAAANSAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABaAAAANTAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"gAAAGQAAAAHAAAAZAAAAAQAAABkAAAABQAAAGQAAAACAAAAZAAAAAMAAABkAAAAAQAAAGQAAAAIAA"
-"AAZAAAAAkAAABkAAAAvgAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACrAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAGQAAAAIAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAAAwAAAGQAAAACAA"
+"AAZAAAAAEAAABkAAAAzwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAACrAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AATAAAAAQAAAAAAAAPoAAAAABM="
+"AAkAAAAAQAAAAAAAAPoAAAAACQ="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -2300,27 +2300,27 @@ Plecs {
       Position      [795, 150]
       Direction     up
       Flipped       off
-      Location      [365, 225; 1805, 1080]
+      Location      [316, 159; 1756, 1014]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwIAAAKeAA"
 "ABswAAAMgAAAB4+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAWgAAAAXPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABaAAAABCAP///wAABaAAAALeAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABaAAAABQAP///wAABaAAAALcAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"gAAAGQAAAAHAAAAZAAAAAQAAABkAAAABQAAAGQAAAACAAAAZAAAAAMAAABkAAAAAQAAAGQAAAAIAA"
-"AAZAAAAAkAAABkAAAFoAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAGQAAAAIAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAAAwAAAGQAAAACAA"
+"AAZAAAAAEAAABkAAAFjwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"ATZAAAAAQAAAAAAAAPoAAAAABM="
+"ATaAAAAAQAAAAAAAAPoAAAAACQ="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -2384,7 +2384,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "s"
-        Value         "2"
+        Value         "1"
         Show          off
       }
     }
@@ -2434,7 +2434,7 @@ Plecs {
       Type          Capacitor
       Name          "Cq"
       Show          on
-      Position      [410, 105]
+      Position      [410, 115]
       Direction     down
       Flipped       on
       Parameter {
@@ -2628,7 +2628,7 @@ Plecs {
       Type          Inductor
       Name          "L1"
       Show          on
-      Position      [460, 40]
+      Position      [450, 50]
       Direction     down
       Flipped       off
       Parameter {
@@ -2683,6 +2683,14 @@ Plecs {
         Value         "4"
         Show          off
       }
+    }
+    Component {
+      Type          Ammeter
+      Name          "Am1"
+      Show          on
+      Position      [470, 70]
+      Direction     right
+      Flipped       on
     }
     Connection {
       Type          Wire
@@ -2875,23 +2883,22 @@ Plecs {
       SrcTerminal   1
       Points        [460, 165]
       Branch {
-        Points        [460, 150]
+        Points        [460, 150; 450, 150]
         Branch {
-          Points        [460, 130]
+          Points        [410, 150]
           Branch {
-            DstComponent  "Q"
-            DstTerminal   2
+            Points        [140, 150; 140, 205]
+            DstComponent  "UC2844"
+            DstTerminal   4
           }
           Branch {
-            Points        [410, 130]
             DstComponent  "Cq"
             DstTerminal   2
           }
         }
         Branch {
-          Points        [140, 150; 140, 205]
-          DstComponent  "UC2844"
-          DstTerminal   4
+          DstComponent  "Q"
+          DstTerminal   2
         }
       }
       Branch {
@@ -2905,45 +2912,6 @@ Plecs {
       SrcTerminal   1
       DstComponent  "Display"
       DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vm2"
-      SrcTerminal   3
-      Points        [530, 145]
-      DstComponent  "Vsh / Vd"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Q"
-      SrcTerminal   1
-      Points        [460, 85]
-      Branch {
-        Points        [460, 80]
-        Branch {
-          Points        [555, 80]
-          DstComponent  "Vm3"
-          DstTerminal   1
-        }
-        Branch {
-          Points        [460, 70]
-          Branch {
-            DstComponent  "L1"
-            DstTerminal   1
-          }
-          Branch {
-            Points        [490, 70]
-            DstComponent  "T"
-            DstTerminal   2
-          }
-        }
-      }
-      Branch {
-        Points        [410, 85]
-        DstComponent  "Cq"
-        DstTerminal   1
-      }
     }
     Connection {
       Type          Signal
@@ -3013,21 +2981,6 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "T"
-      SrcTerminal   1
-      Points        [490, 15; 460, 15]
-      Branch {
-        DstComponent  "L1"
-        DstTerminal   2
-      }
-      Branch {
-        Points        [315, 15]
-        DstComponent  "Vg"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Wire
       SrcComponent  "R8"
       SrcTerminal   1
       Points        [75, 400]
@@ -3060,10 +3013,74 @@ Plecs {
         DstTerminal   1
       }
       Branch {
-        Points        [335, 110]
+        Points        [335, 130]
         DstComponent  "Q"
         DstTerminal   3
       }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "T"
+      SrcTerminal   1
+      Points        [490, 15; 450, 15]
+      Branch {
+        Points        [315, 15]
+        DstComponent  "Vg"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "L1"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Vm3"
+      SrcTerminal   1
+      Points        [555, 100; 450, 100]
+      Branch {
+        DstComponent  "Q"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [450, 70]
+        Branch {
+          DstComponent  "L1"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "Am1"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [410, 100]
+        DstComponent  "Cq"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Am1"
+      SrcTerminal   2
+      DstComponent  "T"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm2"
+      SrcTerminal   3
+      Points        [570, 185; 570, 145]
+      DstComponent  "Vsh / Vd"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Am1"
+      SrcTerminal   3
+      Points        [470, 90]
+      DstComponent  "i_I / V"
+      DstTerminal   1
     }
   }
 }
