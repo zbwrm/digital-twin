@@ -26,12 +26,14 @@ Plecs {
   InitializationCommands "% design parameters\nVg = 18; % volts\nVo = 10; % vo"
 "lts\nPo = 20; % watts\nD  = 0.35; % unitless\nalpha = 0.8; % unitless\n\n% si"
 "mulation parameters\nRct = 9550;\nCct = 1.8e-9;\nRsh = 0.05;\nCo = 52.6e-6;\n"
-"Ro = (Vo*Vo)/Po;\n\n% Q output capacitance values\nCq_datasheet = 425e-12;\nC"
-"q_measured = 1.4139e-9;\nCq = Cq_datasheet;\n\n% calculate transformer turns"
-"\na = Vg * 1/Vo * (D/(sqrt(alpha)-D));\nturns = [a 1];\n\n% timing calculatio"
-"ns\nfs = .5 * 1.72 * (1/Rct) * (1/Cct);\nTs = 1/fs;\n\n% calculate magnetizin"
-"g inductance values\nL = (D^2 * Ts * Vg^2) / (2 * Po)\n\n% calculate ipk\nipk"
-" = D * Ts * Vg / L\n\n% calculate Vcomp\nVcomp = (ipk * Rsh * 3) + 1.309"
+"Ro = (Vo*Vo)/Po;\n\n% derived parasitic/leakage values\nCx1 = 487.68e-12\nLsi"
+"g1 = (1.06e-6)/2\nLsigp2 = (1.06e-6)/2\n\n% Q output capacitance values\nCq_d"
+"atasheet = 425e-12;\nCq_measured = 1.4139e-9;\nCq = Cq_datasheet;\n\n% calcul"
+"ate transformer turns\na = Vg * 1/Vo * (D/(sqrt(alpha)-D));\nturns = [a 1];\n"
+"\n% timing calculations\nfs = .5 * 1.72 * (1/Rct) * (1/Cct);\nTs = 1/fs;\n\n%"
+" calculate magnetizing inductance values\nL = (D^2 * Ts * Vg^2) / (2 * Po)\n"
+"\n% calculate ipk\nipk = D * Ts * Vg / L\n\n% calculate Vcomp\nVcomp = (ipk *"
+" Rsh * 3) + 1.309"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -55,8 +57,8 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [0, 23; 1920, 1031]
-    ZoomFactor    1.17038
+    Location      [0, 27; 1920, 1035]
+    ZoomFactor    1.33934
     SliderPosition [0, 0]
     ShowBrowser   on
     BrowserWidth  264
@@ -215,7 +217,7 @@ Plecs {
       Type          MosfetWithDiode
       Name          "Q"
       Show          on
-      Position      [450, 130]
+      Position      [395, 130]
       Direction     up
       Flipped       off
       Parameter {
@@ -2309,7 +2311,7 @@ Plecs {
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"QAAAGQAAAAIAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAAAwAAAGQAAAACAA"
+"AAAAGQAAAAJAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAAAAZAAAAAUAAABkAAAAAgAAAGQAAAADAA"
 "AAZAAAAAEAAABkAAAFjwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
@@ -2320,7 +2322,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -2434,7 +2436,7 @@ Plecs {
       Type          Capacitor
       Name          "Cq"
       Show          on
-      Position      [410, 115]
+      Position      [360, 115]
       Direction     down
       Flipped       on
       Parameter {
@@ -2628,7 +2630,7 @@ Plecs {
       Type          Inductor
       Name          "L1"
       Show          on
-      Position      [450, 50]
+      Position      [415, 45]
       Direction     down
       Flipped       off
       Parameter {
@@ -2688,9 +2690,63 @@ Plecs {
       Type          Ammeter
       Name          "Am1"
       Show          on
-      Position      [470, 70]
+      Position      [430, 70]
       Direction     right
       Flipped       on
+    }
+    Component {
+      Type          Inductor
+      Name          "Lsig1"
+      Show          on
+      Position      [395, 70]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "L"
+        Value         "Lsig1"
+        Show          off
+      }
+      Parameter {
+        Variable      "i_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Inductor
+      Name          "Lsig'2"
+      Show          on
+      Position      [470, 70]
+      Direction     left
+      Flipped       off
+      Parameter {
+        Variable      "L"
+        Value         "Lsigp2"
+        Show          off
+      }
+      Parameter {
+        Variable      "i_init"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Capacitor
+      Name          "Cx1"
+      Show          on
+      Position      [360, 25]
+      Direction     up
+      Flipped       on
+      Parameter {
+        Variable      "C"
+        Value         "Cx1"
+        Show          off
+      }
+      Parameter {
+        Variable      "v_init"
+        Value         "0"
+        Show          off
+      }
     }
     Connection {
       Type          Wire
@@ -2883,9 +2939,9 @@ Plecs {
       SrcTerminal   1
       Points        [460, 165]
       Branch {
-        Points        [460, 150; 450, 150]
+        Points        [460, 150; 395, 150]
         Branch {
-          Points        [410, 150]
+          Points        [360, 150]
           Branch {
             Points        [140, 150; 140, 205]
             DstComponent  "UC2844"
@@ -3022,11 +3078,18 @@ Plecs {
       Type          Wire
       SrcComponent  "T"
       SrcTerminal   1
-      Points        [490, 15; 450, 15]
+      Points        [490, 15; 415, 15]
       Branch {
-        Points        [315, 15]
-        DstComponent  "Vg"
-        DstTerminal   1
+        Points        [360, 15]
+        Branch {
+          Points        [315, 15]
+          DstComponent  "Vg"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "Cx1"
+          DstTerminal   2
+        }
       }
       Branch {
         DstComponent  "L1"
@@ -3037,34 +3100,29 @@ Plecs {
       Type          Wire
       SrcComponent  "Vm3"
       SrcTerminal   1
-      Points        [555, 100; 450, 100]
+      Points        [555, 100; 395, 100]
       Branch {
         DstComponent  "Q"
         DstTerminal   1
       }
       Branch {
-        Points        [450, 70]
+        Points        [360, 100]
         Branch {
-          DstComponent  "L1"
+          DstComponent  "Cq"
           DstTerminal   1
         }
         Branch {
-          DstComponent  "Am1"
-          DstTerminal   1
+          Points        [360, 70]
+          Branch {
+            DstComponent  "Lsig1"
+            DstTerminal   2
+          }
+          Branch {
+            DstComponent  "Cx1"
+            DstTerminal   1
+          }
         }
       }
-      Branch {
-        Points        [410, 100]
-        DstComponent  "Cq"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Am1"
-      SrcTerminal   2
-      DstComponent  "T"
-      DstTerminal   2
     }
     Connection {
       Type          Signal
@@ -3078,9 +3136,37 @@ Plecs {
       Type          Signal
       SrcComponent  "Am1"
       SrcTerminal   3
-      Points        [470, 90]
+      Points        [430, 90]
       DstComponent  "i_I / V"
       DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Am1"
+      SrcTerminal   1
+      Points        [415, 70]
+      Branch {
+        DstComponent  "L1"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "Lsig1"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Lsig'2"
+      SrcTerminal   1
+      DstComponent  "Am1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Lsig'2"
+      SrcTerminal   2
+      DstComponent  "T"
+      DstTerminal   2
     }
   }
 }
