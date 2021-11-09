@@ -57,9 +57,9 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [0, 0; 1196, 873]
+    Location      [0, 27; 1920, 1035]
     ZoomFactor    1.50878
-    SliderPosition [126, 7]
+    SliderPosition [0, 7]
     ShowBrowser   on
     BrowserWidth  264
     Component {
@@ -2306,16 +2306,16 @@ Plecs {
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwIAAAKeAA"
 "ABswAAAMgAAAB4+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAWgAAAAXPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABaAAAABCAP///wAABaAAAALeAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABaAAAABQAP///wAABaAAAALcAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"wAAAGQAAAAEAAAAZAAAAAUAAABkAAAABgAAAGQAAAAHAAAAZAAAAAgAAABkAAAACQAAAGQAAAABAA"
-"AAZAAAAAIAAABkAAAFoAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
+"wAAAGQAAAACAAAAZAAAAAEAAABkAAAABwAAAGQAAAAGAAAAZAAAAAUAAABkAAAABAAAAGQAAAAJAA"
+"AAZAAAAAgAAABkAAAFjwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"ATZAAAAAQAAAAAAAAPoAAAAABM="
+"ATIAAAAAQAAAAAAAAPoAAAAACQ="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -2386,7 +2386,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "s"
-        Value         "1"
+        Value         "2"
         Show          off
       }
     }
@@ -2752,7 +2752,7 @@ Plecs {
       Type          Resistor
       Name          "Rcp"
       Show          on
-      Position      [420, 40]
+      Position      [400, 40]
       Direction     up
       Flipped       off
       Parameter {
@@ -2834,7 +2834,7 @@ Plecs {
       Type          Diode
       Name          "D2"
       Show          on
-      Position      [440, 70]
+      Position      [450, 70]
       Direction     right
       Flipped       off
       Parameter {
@@ -2856,6 +2856,74 @@ Plecs {
         Variable      "T_init"
         Value         "0"
         Show          off
+      }
+    }
+    Component {
+      Type          Voltmeter
+      Name          "Vm4"
+      Show          off
+      Position      [420, 70]
+      Direction     right
+      Flipped       off
+    }
+    Component {
+      Type          Scope
+      Name          "Vdcp"
+      Show          on
+      Position      [390, 105]
+      Direction     down
+      Flipped       off
+      Location      [0, 27; 1440, 905]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABaAAAANTAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"wAAAGQAAAACAAAAZAAAAAEAAABkAAAABwAAAGQAAAAGAAAAZAAAAAUAAABkAAAABAAAAGQAAAAJAA"
+"AAZAAAAAgAAABkAAAA2AAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC0AAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAkAAAAAQAAAAAAAAPoAAAAACQ="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
       }
     }
     Connection {
@@ -3280,7 +3348,7 @@ Plecs {
         DstTerminal   1
       }
       Branch {
-        Points        [420, 15]
+        Points        [400, 15]
         Branch {
           Points        [470, 15]
           Branch {
@@ -3300,21 +3368,6 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "Rcp"
-      SrcTerminal   2
-      Points        [420, 70]
-      Branch {
-        DstComponent  "D2"
-        DstTerminal   2
-      }
-      Branch {
-        Points        [380, 70]
-        DstComponent  "Ccp"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Wire
       SrcComponent  "Lsig'2"
       SrcTerminal   2
       Points        [530, 15]
@@ -3326,6 +3379,35 @@ Plecs {
         DstComponent  "L"
         DstTerminal   2
       }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Vm4"
+      SrcTerminal   1
+      DstComponent  "D2"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Rcp"
+      SrcTerminal   2
+      Points        [400, 70]
+      Branch {
+        Points        [380, 70]
+        DstComponent  "Ccp"
+        DstTerminal   2
+      }
+      Branch {
+        DstComponent  "Vm4"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm4"
+      SrcTerminal   3
+      DstComponent  "Vdcp"
+      DstTerminal   1
     }
   }
 }
