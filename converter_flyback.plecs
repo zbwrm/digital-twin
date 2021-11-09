@@ -26,14 +26,14 @@ Plecs {
   InitializationCommands "% design parameters\nVg = 18; % volts\nVo = 10; % vo"
 "lts\nPo = 20; % watts\nD  = 0.35; % unitless\nalpha = 0.8; % unitless\n\n% si"
 "mulation parameters\nRct = 9550;\nCct = 1.8e-9;\nRsh = 0.05;\nCo = 52.6e-6;\n"
-"Ro = (Vo*Vo)/Po;\nRsb = 37\nCsb = 1.5e-9\n\n% derived parasitic/leakage value"
-"s\nCx1 = 487.68e-12\nLsig1 = (1.06e-6)/2\nLsigp2 = (1.06e-6)/2\n\n% Q output "
-"capacitance values\nCq_datasheet = 425e-12;\nCq_measured = 1.4139e-9;\nCq = C"
-"q_datasheet;\n\n% calculate transformer turns\na = Vg * 1/Vo * (D/(sqrt(alpha"
-")-D));\nturns = [a 1];\n\n% timing calculations\nfs = .5 * 1.72 * (1/Rct) * ("
-"1/Cct);\nTs = 1/fs;\n\n% calculate magnetizing inductance values\nL = (D^2 * "
-"Ts * Vg^2) / (2 * Po)\n\n% calculate ipk\nipk = D * Ts * Vg / L\n\n\n% calcul"
-"ate Vcomp\nVcomp = (ipk * Rsh * 3) + 1.309"
+"Ro = (Vo*Vo)/Po;\nRsb = 33\nCsb = 1.5e-9\nRcp = 470\nCcp = 0.47e-6\n\n\n% der"
+"ived parasitic/leakage values\nCx1 = 487.68e-12\nLsig1 = (1.06e-6)/2\nLsigp2 "
+"= (1.06e-6)/2\n\n% Q output capacitance values\nCq_datasheet = 425e-12;\nCq_m"
+"easured = 1.4139e-9;\nCq = Cq_datasheet;\n\n% calculate transformer turns\na "
+"= Vg * 1/Vo * (D/(sqrt(alpha)-D));\nturns = [a 1];\n\n% timing calculations\n"
+"fs = .5 * 1.72 * (1/Rct) * (1/Cct);\nTs = 1/fs;\n\n% calculate magnetizing in"
+"ductance values\nL = (D^2 * Ts * Vg^2) / (2 * Po)\n\n% calculate ipk\nipk = D"
+" * Ts * Vg / L\n\n\n% calculate Vcomp\nVcomp = (ipk * Rsh * 3) + 1.309"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -58,8 +58,8 @@ Plecs {
   ScriptsDialogSplitterPos "0"
   Schematic {
     Location      [0, 0; 1196, 873]
-    ZoomFactor    0.873848
-    SliderPosition [0, 0]
+    ZoomFactor    1.50878
+    SliderPosition [488, -1]
     ShowBrowser   on
     BrowserWidth  264
     Component {
@@ -2014,20 +2014,20 @@ Plecs {
       Position      [905, 205]
       Direction     up
       Flipped       off
-      Location      [0, 27; 1440, 905]
+      Location      [0, 22; 1440, 900]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABaAAAANTAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABCAP///wAABaAAAANSAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"QAAAGQAAAAIAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAAAwAAAGQAAAACAA"
-"AAZAAAAAEAAABkAAAA2AAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC0AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"wAAAGQAAAAEAAAAZAAAAAUAAABkAAAABgAAAGQAAAAHAAAAZAAAAAgAAABkAAAACQAAAGQAAAABAA"
+"AAZAAAAAIAAABkAAAAxwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC0AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAkAAAAAQAAAAAAAAPoAAAAACQ="
+"AATAAAAAQAAAAAAAAPoAAAAABM="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -2113,7 +2113,7 @@ Plecs {
       Type          Resistor
       Name          "R6"
       Show          off
-      Position      [15, 345]
+      Position      [65, 345]
       Direction     up
       Flipped       off
       Parameter {
@@ -2126,7 +2126,7 @@ Plecs {
       Type          Resistor
       Name          "R7"
       Show          off
-      Position      [15, 290]
+      Position      [65, 290]
       Direction     up
       Flipped       off
       Parameter {
@@ -2139,7 +2139,7 @@ Plecs {
       Type          Resistor
       Name          "R8"
       Show          off
-      Position      [75, 315]
+      Position      [125, 315]
       Direction     up
       Flipped       off
       Parameter {
@@ -2152,7 +2152,7 @@ Plecs {
       Type          Ground
       Name          "Ground3"
       Show          off
-      Position      [75, 385]
+      Position      [125, 385]
       Direction     up
       Flipped       off
     }
@@ -2160,7 +2160,7 @@ Plecs {
       Type          DCVoltageSource
       Name          "V_dc"
       Show          off
-      Position      [160, 295]
+      Position      [210, 295]
       Direction     down
       Flipped       on
       Parameter {
@@ -2173,7 +2173,7 @@ Plecs {
       Type          Ground
       Name          "Ground4"
       Show          off
-      Position      [160, 385]
+      Position      [210, 385]
       Direction     up
       Flipped       off
     }
@@ -2381,7 +2381,7 @@ Plecs {
       Type          ManualSwitch2
       Name          "Switch"
       Show          on
-      Position      [95, 235]
+      Position      [145, 235]
       Direction     up
       Flipped       off
       Parameter {
@@ -2750,27 +2750,27 @@ Plecs {
     }
     Component {
       Type          Resistor
-      Name          "Rsb"
+      Name          "Rcp"
       Show          on
-      Position      [395, 60]
+      Position      [420, 40]
       Direction     up
       Flipped       off
       Parameter {
         Variable      "R"
-        Value         "Rsb"
+        Value         "Rcp"
         Show          off
       }
     }
     Component {
       Type          Capacitor
-      Name          "Csb"
+      Name          "Ccp"
       Show          on
-      Position      [395, 30]
+      Position      [380, 35]
       Direction     down
       Flipped       on
       Parameter {
         Variable      "C"
-        Value         "Csb"
+        Value         "Ccp"
         Show          off
       }
       Parameter {
@@ -2798,7 +2798,7 @@ Plecs {
       }
       Parameter {
         Variable      "f"
-        Value         "50000"
+        Value         "fs"
         Show          off
       }
       Parameter {
@@ -2827,6 +2827,34 @@ Plecs {
       Parameter {
         Variable      "SwitchState"
         Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Diode
+      Name          "D2"
+      Show          on
+      Position      [440, 70]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Vf"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ron"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "thermal"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "T_init"
+        Value         "0"
         Show          off
       }
     }
@@ -2933,9 +2961,9 @@ Plecs {
       Type          Wire
       SrcComponent  "Ground3"
       SrcTerminal   1
-      Points        [75, 375]
+      Points        [125, 375]
       Branch {
-        Points        [15, 375]
+        Points        [65, 375]
         DstComponent  "R6"
         DstTerminal   2
       }
@@ -3108,13 +3136,13 @@ Plecs {
       Type          Wire
       SrcComponent  "R8"
       SrcTerminal   1
-      Points        [75, 270]
+      Points        [125, 270]
       Branch {
         DstComponent  "R7"
         DstTerminal   1
       }
       Branch {
-        Points        [85, 270]
+        Points        [135, 270]
         DstComponent  "Switch"
         DstTerminal   2
       }
@@ -3123,7 +3151,7 @@ Plecs {
       Type          Wire
       SrcComponent  "V_dc"
       SrcTerminal   1
-      Points        [160, 270; 105, 270]
+      Points        [210, 270; 155, 270]
       DstComponent  "Switch"
       DstTerminal   3
     }
@@ -3143,29 +3171,26 @@ Plecs {
           DstTerminal   1
         }
         Branch {
-          Points        [470, 80]
+          Points        [470, 70]
           Branch {
-            Points        [470, 70]
+            DstComponent  "Cx1"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [520, 70]
             Branch {
-              DstComponent  "Cx1"
+              DstComponent  "Am1"
               DstTerminal   1
             }
             Branch {
-              Points        [520, 70]
-              Branch {
-                DstComponent  "Am1"
-                DstTerminal   1
-              }
-              Branch {
-                Points        [525, 70]
-                DstComponent  "L"
-                DstTerminal   1
-              }
+              Points        [525, 70]
+              DstComponent  "L"
+              DstTerminal   1
             }
           }
           Branch {
-            DstComponent  "Rsb"
-            DstTerminal   2
+            DstComponent  "D2"
+            DstTerminal   1
           }
         }
       }
@@ -3218,35 +3243,6 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "Cx1"
-      SrcTerminal   2
-      Points        [470, 15]
-      Branch {
-        Points        [395, 15]
-        Branch {
-          Points        [315, 15]
-          DstComponent  "Vg"
-          DstTerminal   1
-        }
-        Branch {
-          DstComponent  "Csb"
-          DstTerminal   1
-        }
-      }
-      Branch {
-        DstComponent  "Lsig1"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Csb"
-      SrcTerminal   2
-      DstComponent  "Rsb"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
       SrcComponent  "C2"
       SrcTerminal   1
       Points        [370, 300]
@@ -3288,6 +3284,49 @@ Plecs {
       SrcTerminal   1
       DstComponent  "Manual Switch"
       DstTerminal   2
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Vg"
+      SrcTerminal   1
+      Points        [315, 15; 380, 15]
+      Branch {
+        DstComponent  "Ccp"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [420, 15]
+        Branch {
+          Points        [470, 15]
+          Branch {
+            DstComponent  "Lsig1"
+            DstTerminal   2
+          }
+          Branch {
+            DstComponent  "Cx1"
+            DstTerminal   2
+          }
+        }
+        Branch {
+          DstComponent  "Rcp"
+          DstTerminal   1
+        }
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Rcp"
+      SrcTerminal   2
+      Points        [420, 70]
+      Branch {
+        DstComponent  "D2"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [380, 70]
+        DstComponent  "Ccp"
+        DstTerminal   2
+      }
     }
   }
 }
