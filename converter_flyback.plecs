@@ -59,7 +59,7 @@ Plecs {
   Schematic {
     Location      [0, 0; 1196, 873]
     ZoomFactor    1.50878
-    SliderPosition [488, -1]
+    SliderPosition [126, 7]
     ShowBrowser   on
     BrowserWidth  264
     Component {
@@ -2630,7 +2630,7 @@ Plecs {
       Type          Inductor
       Name          "L"
       Show          on
-      Position      [525, 45]
+      Position      [530, 45]
       Direction     down
       Flipped       off
       Parameter {
@@ -2690,7 +2690,7 @@ Plecs {
       Type          Ammeter
       Name          "Am1"
       Show          on
-      Position      [540, 70]
+      Position      [560, 70]
       Direction     right
       Flipped       on
     }
@@ -3177,13 +3177,12 @@ Plecs {
             DstTerminal   1
           }
           Branch {
-            Points        [520, 70]
+            Points        [530, 70]
             Branch {
               DstComponent  "Am1"
               DstTerminal   1
             }
             Branch {
-              Points        [525, 70]
               DstComponent  "L"
               DstTerminal   1
             }
@@ -3207,23 +3206,9 @@ Plecs {
       Type          Signal
       SrcComponent  "Am1"
       SrcTerminal   3
-      Points        [540, 90]
+      Points        [560, 90]
       DstComponent  "i_I / V"
       DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "L"
-      SrcTerminal   2
-      Points        [525, 15]
-      Branch {
-        DstComponent  "Lsig1"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "Lsig'2"
-        DstTerminal   2
-      }
     }
     Connection {
       Type          Wire
@@ -3237,7 +3222,7 @@ Plecs {
       Type          Wire
       SrcComponent  "T"
       SrcTerminal   2
-      Points        [600, 70]
+      Points        [590, 55; 590, 70]
       DstComponent  "Am1"
       DstTerminal   2
     }
@@ -3325,6 +3310,20 @@ Plecs {
       Branch {
         Points        [380, 70]
         DstComponent  "Ccp"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Lsig'2"
+      SrcTerminal   2
+      Points        [530, 15]
+      Branch {
+        DstComponent  "Lsig1"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "L"
         DstTerminal   2
       }
     }
