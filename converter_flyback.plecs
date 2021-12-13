@@ -2315,7 +2315,7 @@ Plecs {
 "AAZAAAAAcAAABkAAAFoAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"ATZAAAAAQAAAAAAAAPoAAAAABM="
+"ATIAAAAAQAAAAAAAAPoAAAAACQ="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -2386,7 +2386,7 @@ Plecs {
       Flipped       off
       Parameter {
         Variable      "s"
-        Value         "1"
+        Value         "2"
         Show          off
       }
     }
@@ -4351,6 +4351,13 @@ Plecs {
         DstComponent  "RMS Value9"
         DstTerminal   1
       }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm4"
+      SrcTerminal   3
+      DstComponent  "Vdcp"
+      DstTerminal   1
     }
   }
 }
