@@ -26,14 +26,15 @@ Plecs {
   InitializationCommands "% design parameters\nVg = 18; % volts\nVo = 10; % vo"
 "lts\nPo = 20; % watts\nD  = 0.35; % unitless\nalpha = 0.8; % unitless\n\n% si"
 "mulation parameters\nRct = 9550;\nCct = 1.8e-9;\nRsh = 0.05;\nCo = 52.6e-6;\n"
-"Ro = (Vo*Vo)/Po;\nRsb = 33\nCsb = 1.5e-9\nRcp = 470\nCcp = 0.47e-6\n\n\n% der"
-"ived parasitic/leakage values\nCx1 = 487.68e-12\nLsig1 = (1.06e-6)/2\nLsigp2 "
-"= (1.06e-6)/2\n\n% Q output capacitance values\nCq_datasheet = 425e-12;\nCq_m"
-"easured = 1.4139e-9;\nCq = Cq_datasheet;\n\n% calculate transformer turns\na "
-"= Vg * 1/Vo * (D/(sqrt(alpha)-D));\nturns = [a 1];\n\n% timing calculations\n"
-"fs = .5 * 1.72 * (1/Rct) * (1/Cct);\nTs = 1/fs;\n\n% calculate magnetizing in"
-"ductance values\nL = (D^2 * Ts * Vg^2) / (2 * Po)\n\n% calculate ipk\nipk = D"
-" * Ts * Vg / L\n\n\n% calculate Vcomp\nVcomp = (ipk * Rsh * 3) + 1.309"
+"Ro = (Vo*Vo)/Po;\nRsb = 33\nCsb = 1.5e-9\nRcp = 470\nCcp = 0.47e-6\nRf1 = 3.1"
+"e3\nRf2 = 1e3\nCc1 = 15e-9\nCc2 = 1.5e-9\nRc1 = 5.6e3\n\n\n% derived parasiti"
+"c/leakage values\nCx1 = 487.68e-12\nLsig1 = (1.06e-6)/2\nLsigp2 = (1.06e-6)/2"
+"\n\n% Q output capacitance values\nCq_datasheet = 425e-12;\nCq_measured = 1.4"
+"139e-9;\nCq = Cq_datasheet;\n\n% calculate transformer turns\na = Vg * 1/Vo *"
+" (D/(sqrt(alpha)-D));\nturns = [a 1];\n\n% timing calculations\nfs = .5 * 1.7"
+"2 * (1/Rct) * (1/Cct);\nTs = 1/fs;\n\n% calculate magnetizing inductance valu"
+"es\nL = (D^2 * Ts * Vg^2) / (2 * Po)\n\n% calculate ipk\nipk = D * Ts * Vg / "
+"L\n\n\n% calculate Vcomp\nVcomp = (ipk * Rsh * 3) + 1.309"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -79,7 +80,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm1"
       Show          off
-      Position      [870, 165]
+      Position      [885, 165]
       Direction     up
       Flipped       off
     }
@@ -87,7 +88,7 @@ Plecs {
       Type          Display
       Name          "Display"
       Show          on
-      Position      [1025, 165]
+      Position      [1090, 165]
       Direction     up
       Flipped       off
       Frame         [-31, -11; 31, 11]
@@ -109,7 +110,7 @@ Plecs {
       SrcComponent  "Components/Control/Filters/Periodic Average"
       Name          "Periodic Average"
       Show          on
-      Position      [950, 165]
+      Position      [985, 165]
       Direction     up
       Flipped       off
       Frame         [-15, -15; 15, 15]
@@ -142,16 +143,16 @@ Plecs {
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAFwA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABCAP///wAABaAAAAM7AAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABaAAAAM8AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAGQAAAAJAAAAZAAAAAEAAABkAAAAAgAAAGQAAAADAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAA"
-"AAZAAAAAcAAABkAAAAyAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAADAAAAZAAAAAEAAABkAAAABgAAAGQAAAAHAAAAZAAAAAQAAABkAAAABQAAAGQAAAAIAA"
+"AAZAAAAAkAAABkAAAA2QAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AATAAAAAQAAAAAAAAPoAAAAABM="
+"AAkAAAAAQAAAAAAAAPoAAAAACQ="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -217,7 +218,7 @@ Plecs {
       Type          MosfetWithDiode
       Name          "Q"
       Show          on
-      Position      [505, 395]
+      Position      [530, 395]
       Direction     up
       Flipped       off
       Parameter {
@@ -299,7 +300,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [0, 0; 1440, 873]
+        Location      [640, 300; 2080, 1173]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -1982,7 +1983,7 @@ Plecs {
       Type          Ground
       Name          "Ground2"
       Show          off
-      Position      [570, 820]
+      Position      [575, 825]
       Direction     up
       Flipped       off
     }
@@ -1990,7 +1991,7 @@ Plecs {
       Type          Resistor
       Name          "R1"
       Show          off
-      Position      [570, 450]
+      Position      [530, 570]
       Direction     up
       Flipped       off
       Parameter {
@@ -1998,14 +1999,6 @@ Plecs {
         Value         "Rsh"
         Show          on
       }
-    }
-    Component {
-      Type          Ammeter
-      Name          "Am3"
-      Show          on
-      Position      [570, 495]
-      Direction     up
-      Flipped       off
     }
     Component {
       Type          Scope
@@ -2283,7 +2276,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm2"
       Show          off
-      Position      [625, 450]
+      Position      [575, 450]
       Direction     up
       Flipped       off
     }
@@ -2291,7 +2284,7 @@ Plecs {
       Type          Voltmeter
       Name          "Vm3"
       Show          off
-      Position      [780, 480]
+      Position      [595, 475]
       Direction     up
       Flipped       off
     }
@@ -2312,10 +2305,10 @@ Plecs {
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
 "gAAAGQAAAADAAAAZAAAAAEAAABkAAAABgAAAGQAAAAHAAAAZAAAAAQAAABkAAAABQAAAGQAAAAIAA"
-"AAZAAAAAkAAABkAAAFoAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAABAAAA"
+"AAZAAAAAkAAABkAAAFjwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAABAAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AVgAAAAAQAAAAAAAAPoAAAAACQ="
+"AVPAAAAAQAAAAAAAAPoAAAAACQ="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -2474,7 +2467,7 @@ Plecs {
       Type          Diode
       Name          "D1"
       Show          on
-      Position      [795, 140]
+      Position      [715, 140]
       Direction     left
       Flipped       off
       Parameter {
@@ -2502,7 +2495,7 @@ Plecs {
       Type          Capacitor
       Name          "Co"
       Show          on
-      Position      [820, 165]
+      Position      [795, 165]
       Direction     down
       Flipped       on
       Parameter {
@@ -2520,7 +2513,7 @@ Plecs {
       Type          Resistor
       Name          "Ro"
       Show          on
-      Position      [835, 215]
+      Position      [845, 165]
       Direction     up
       Flipped       off
       Parameter {
@@ -2877,100 +2870,6 @@ Plecs {
       }
     }
     Component {
-      Type          Product
-      Name          "Product"
-      Show          on
-      Position      [880, 405]
-      Direction     up
-      Flipped       off
-      Parameter {
-        Variable      "Inputs"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Display
-      Name          "Display2"
-      Show          on
-      Position      [1005, 405]
-      Direction     up
-      Flipped       off
-      Frame         [-31, -11; 31, 11]
-      LabelPosition [0, 14]
-      LabelAlign    up
-      Parameter {
-        Variable      "Notation"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Precision"
-        Value         "4"
-        Show          off
-      }
-    }
-    Component {
-      Type          Voltmeter
-      Name          "Vm4"
-      Show          on
-      Position      [795, 105]
-      Direction     left
-      Flipped       off
-    }
-    Component {
-      Type          Ammeter
-      Name          "Am2"
-      Show          on
-      Position      [755, 140]
-      Direction     left
-      Flipped       off
-    }
-    Component {
-      Type          Product
-      Name          "Product1"
-      Show          on
-      Position      [830, 75]
-      Direction     up
-      Flipped       off
-      Parameter {
-        Variable      "Inputs"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Display
-      Name          "Display7"
-      Show          on
-      Position      [935, 75]
-      Direction     up
-      Flipped       off
-      Frame         [-31, -11; 31, 11]
-      LabelPosition [0, 14]
-      LabelAlign    up
-      Parameter {
-        Variable      "Notation"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Precision"
-        Value         "4"
-        Show          off
-      }
-    }
-    Component {
       Type          Voltmeter
       Name          "Vm5"
       Show          on
@@ -2979,105 +2878,11 @@ Plecs {
       Flipped       off
     }
     Component {
-      Type          Product
-      Name          "Product2"
-      Show          on
-      Position      [560, 60]
-      Direction     up
-      Flipped       off
-      Parameter {
-        Variable      "Inputs"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Display
-      Name          "Display9"
-      Show          on
-      Position      [665, 60]
-      Direction     up
-      Flipped       off
-      Frame         [-31, -11; 31, 11]
-      LabelPosition [0, 14]
-      LabelAlign    up
-      Parameter {
-        Variable      "Notation"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Precision"
-        Value         "4"
-        Show          off
-      }
-    }
-    Component {
       Type          Ammeter
       Name          "Am4"
       Show          on
       Position      [445, 185]
       Direction     left
-      Flipped       off
-    }
-    Component {
-      Type          Voltmeter
-      Name          "Vm6"
-      Show          off
-      Position      [550, 390]
-      Direction     up
-      Flipped       off
-    }
-    Component {
-      Type          Product
-      Name          "Product3"
-      Show          on
-      Position      [615, 285]
-      Direction     up
-      Flipped       off
-      Parameter {
-        Variable      "Inputs"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Display
-      Name          "Display10"
-      Show          on
-      Position      [700, 320]
-      Direction     up
-      Flipped       off
-      Frame         [-31, -11; 31, 11]
-      LabelPosition [0, 14]
-      LabelAlign    up
-      Parameter {
-        Variable      "Notation"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Precision"
-        Value         "4"
-        Show          off
-      }
-    }
-    Component {
-      Type          Ammeter
-      Name          "Am5"
-      Show          on
-      Position      [505, 345]
-      Direction     up
       Flipped       off
     }
     Component {
@@ -3095,481 +2900,6 @@ Plecs {
       Position      [330, 220]
       Direction     up
       Flipped       off
-    }
-    Component {
-      Type          Product
-      Name          "Product4"
-      Show          on
-      Position      [275, 65]
-      Direction     up
-      Flipped       off
-      Parameter {
-        Variable      "Inputs"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Display
-      Name          "Display11"
-      Show          on
-      Position      [380, 65]
-      Direction     up
-      Flipped       off
-      Frame         [-31, -11; 31, 11]
-      LabelPosition [0, 14]
-      LabelAlign    up
-      Parameter {
-        Variable      "Notation"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Precision"
-        Value         "4"
-        Show          off
-      }
-    }
-    Component {
-      Type          Ammeter
-      Name          "Am7"
-      Show          on
-      Position      [835, 170]
-      Direction     up
-      Flipped       off
-    }
-    Component {
-      Type          Display
-      Name          "Display14"
-      Show          on
-      Position      [1025, 215]
-      Direction     up
-      Flipped       off
-      Frame         [-31, -11; 31, 11]
-      LabelPosition [0, 14]
-      LabelAlign    up
-      Parameter {
-        Variable      "Notation"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Precision"
-        Value         "4"
-        Show          off
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/Periodic Average"
-      Name          "Periodic Average8"
-      Show          on
-      Position      [950, 215]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "T_average"
-        Value         "1/50e2"
-        Show          off
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/Periodic Average"
-      Name          "Periodic Average1"
-      Show          on
-      Position      [930, 405]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "T_average"
-        Value         "1/50e2"
-        Show          off
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/RMS Value"
-      Name          "RMS Value3"
-      Show          on
-      Position      [625, 405]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "x0"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "ts"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "fs"
-        Value         "50000"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/RMS Value"
-      Name          "RMS Value6"
-      Show          on
-      Position      [215, 60]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "x0"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "ts"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "fs"
-        Value         "50000"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/RMS Value"
-      Name          "RMS Value7"
-      Show          on
-      Position      [495, 55]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "x0"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "ts"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "fs"
-        Value         "50000"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/RMS Value"
-      Name          "RMS Value8"
-      Show          on
-      Position      [760, 80]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "x0"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "ts"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "fs"
-        Value         "50000"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/Periodic Average"
-      Name          "Periodic Average2"
-      Show          on
-      Position      [875, 75]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "T_average"
-        Value         "0.00002"
-        Show          off
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/Periodic Average"
-      Name          "Periodic Average3"
-      Show          on
-      Position      [605, 60]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "T_average"
-        Value         "1/50e2"
-        Show          off
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/Periodic Average"
-      Name          "Periodic Average4"
-      Show          on
-      Position      [320, 65]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "T_average"
-        Value         "1/50e3"
-        Show          off
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/Periodic Average"
-      Name          "Periodic Average5"
-      Show          on
-      Position      [640, 320]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "T_average"
-        Value         "1/50e2"
-        Show          off
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-    }
-    Component {
-      Type          Scope
-      Name          "Ish1"
-      Show          on
-      Position      [745, 380]
-      Direction     up
-      Flipped       off
-      Location      [0, 27; 1440, 927]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABaAAAANpAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
-"gAAAGQAAAADAAAAZAAAAAEAAABkAAAABgAAAGQAAAAHAAAAZAAAAAQAAABkAAAABQAAAGQAAAAIAA"
-"AAZAAAAAkAAABkAAAA6wAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADHAAA"
-"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
-"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAkAAAAAQAAAAAAAAPoAAAAACQ="
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
-      TimeRange     "0.0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    ""
-      ShowLegend    "1"
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
-      }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Filters/RMS Value"
-      Name          "RMS Value9"
-      Show          on
-      Position      [695, 380]
-      Direction     up
-      Flipped       off
-      Frame         [-15, -15; 15, 15]
-      LabelPosition [0, 18]
-      LabelAlign    up
-      Parameter {
-        Variable      "x0"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "ts"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "fs"
-        Value         "50000"
-        Show          off
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 0]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
     }
     Component {
       Type          ManualSwitch3
@@ -3627,7 +2957,7 @@ Plecs {
       Type          Label
       Name          "Label"
       Show          off
-      Position      [870, 130]
+      Position      [885, 130]
       Direction     up
       Flipped       off
       Parameter {
@@ -3645,7 +2975,7 @@ Plecs {
       Type          Label
       Name          "Label1"
       Show          off
-      Position      [80, 330]
+      Position      [150, 285]
       Direction     up
       Flipped       off
       Parameter {
@@ -3671,7 +3001,7 @@ Plecs {
       Type          Capacitor
       Name          "C1"
       Show          off
-      Position      [145, 510]
+      Position      [195, 510]
       Direction     left
       Flipped       on
       Parameter {
@@ -3689,7 +3019,7 @@ Plecs {
       Type          Resistor
       Name          "R5"
       Show          off
-      Position      [105, 510]
+      Position      [165, 510]
       Direction     right
       Flipped       off
       Parameter {
@@ -3702,7 +3032,7 @@ Plecs {
       Type          Capacitor
       Name          "C3"
       Show          off
-      Position      [145, 545]
+      Position      [195, 545]
       Direction     left
       Flipped       on
       Parameter {
@@ -3720,92 +3050,187 @@ Plecs {
       Type          Ground
       Name          "Ground5"
       Show          off
-      Position      [85, 565]
+      Position      [135, 565]
       Direction     up
       Flipped       off
     }
+    Component {
+      Type          PulseGenerator
+      Name          "Pulse\nGenerator1"
+      Show          on
+      Position      [175, 240]
+      Direction     left
+      Flipped       off
+      Parameter {
+        Variable      "Hi"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Lo"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "f"
+        Value         "10000"
+        Show          off
+      }
+      Parameter {
+        Variable      "DutyCycle"
+        Value         "0.5"
+        Show          off
+      }
+      Parameter {
+        Variable      "Delay"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          VoltageSource
+      Name          "V"
+      Show          on
+      Position      [80, 240]
+      Direction     up
+      Flipped       on
+      Parameter {
+        Variable      "DiscretizationBehavior"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "StateSpaceInlining"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Ground
+      Name          "Ground6"
+      Show          off
+      Position      [110, 210]
+      Direction     up
+      Flipped       off
+    }
+    Component {
+      Type          Transformer
+      Name          "Tr2"
+      Show          on
+      Position      [90, 305]
+      Direction     right
+      Flipped       on
+      Parameter {
+        Variable      "Windings"
+        Value         "[1 1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "n"
+        Value         "[1 1]"
+        Show          off
+      }
+      Parameter {
+        Variable      "Polarity"
+        Value         "+"
+        Show          off
+      }
+      Parameter {
+        Variable      "Lm"
+        Value         "0.0000000000001"
+        Show          off
+      }
+      Parameter {
+        Variable      "im0"
+        Value         "0"
+        Show          off
+      }
+    }
     Connection {
       Type          Wire
-      SrcComponent  "Ro"
-      SrcTerminal   2
-      Points        [835, 245]
+      SrcComponent  "T"
+      SrcTerminal   4
+      Points        [620, 195; 765, 195]
       Branch {
-        Points        [820, 245; 820, 195]
+        Points        [765, 790; 595, 790]
         Branch {
-          Points        [765, 195]
+          Points        [575, 790]
           Branch {
-            Points        [765, 790]
+            Points        [530, 790]
             Branch {
-              Points        [625, 790]
+              Points        [510, 790]
               Branch {
-                Points        [570, 790]
+                Points        [370, 790]
                 Branch {
-                  DstComponent  "Am3"
-                  DstTerminal   2
-                }
-                Branch {
-                  DstComponent  "Ground2"
-                  DstTerminal   1
-                }
-                Branch {
-                  Points        [510, 790]
+                  Points        [315, 790]
                   Branch {
-                    Points        [370, 790]
+                    DstComponent  "Ground"
+                    DstTerminal   1
+                  }
+                  Branch {
+                    Points        [15, 790; 15, 475]
                     Branch {
-                      Points        [315, 790]
-                      Branch {
-                        DstComponent  "Ground"
-                        DstTerminal   1
-                      }
-                      Branch {
-                        Points        [15, 790; 15, 475]
-                        Branch {
-                          DstComponent  "Vg"
-                          DstTerminal   2
-                        }
-                        Branch {
-                          DstComponent  "S2"
-                          DstTerminal   3
-                        }
-                      }
-                    }
-                    Branch {
-                      DstComponent  "C2"
+                      DstComponent  "Vg"
                       DstTerminal   2
                     }
+                    Branch {
+                      DstComponent  "S2"
+                      DstTerminal   3
+                    }
                   }
-                  Branch {
-                    DstComponent  "UC2844"
-                    DstTerminal   7
-                  }
+                }
+                Branch {
+                  DstComponent  "C2"
+                  DstTerminal   2
                 }
               }
               Branch {
-                DstComponent  "Vm2"
-                DstTerminal   2
+                DstComponent  "UC2844"
+                DstTerminal   7
               }
             }
             Branch {
-              Points        [780, 790]
-              DstComponent  "Vm3"
+              DstComponent  "R1"
               DstTerminal   2
             }
           }
           Branch {
-            Points        [620, 195]
-            DstComponent  "T"
-            DstTerminal   4
+            DstComponent  "Vm2"
+            DstTerminal   2
+          }
+          Branch {
+            DstComponent  "Ground2"
+            DstTerminal   1
+          }
+        }
+        Branch {
+          DstComponent  "Vm3"
+          DstTerminal   2
+        }
+      }
+      Branch {
+        Points        [795, 195]
+        Branch {
+          Points        [845, 195]
+          Branch {
+            Points        [885, 195]
+            DstComponent  "Vm1"
+            DstTerminal   2
+          }
+          Branch {
+            DstComponent  "Ro"
+            DstTerminal   2
           }
         }
         Branch {
           DstComponent  "Co"
           DstTerminal   2
         }
-      }
-      Branch {
-        Points        [870, 245]
-        DstComponent  "Vm1"
-        DstTerminal   2
       }
     }
     Connection {
@@ -3868,17 +3293,10 @@ Plecs {
       DstTerminal   1
     }
     Connection {
-      Type          Wire
-      SrcComponent  "R1"
-      SrcTerminal   2
-      DstComponent  "Am3"
-      DstTerminal   1
-    }
-    Connection {
       Type          Signal
       SrcComponent  "Vm3"
       SrcTerminal   3
-      Points        [810, 480; 810, 315]
+      Points        [810, 475; 810, 315]
       DstComponent  "Vsh / Vd"
       DstTerminal   2
     }
@@ -3888,35 +3306,6 @@ Plecs {
       SrcTerminal   1
       DstComponent  "Display4"
       DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "R1"
-      SrcTerminal   1
-      Points        [570, 430]
-      Branch {
-        Points        [570, 415; 550, 415]
-        Branch {
-          Points        [505, 415]
-          Branch {
-            Points        [370, 415; 370, 495]
-            DstComponent  "UC2844"
-            DstTerminal   4
-          }
-          Branch {
-            DstComponent  "Q"
-            DstTerminal   2
-          }
-        }
-        Branch {
-          DstComponent  "Vm6"
-          DstTerminal   2
-        }
-      }
-      Branch {
-        DstComponent  "Vm2"
-        DstTerminal   1
-      }
     }
     Connection {
       Type          Signal
@@ -3967,33 +3356,7 @@ Plecs {
       SrcTerminal   1
       Points        [530, 195]
       Branch {
-        Points        [530, 285; 470, 285]
-        Branch {
-          Points        [470, 310]
-          Branch {
-            DstComponent  "Cq"
-            DstTerminal   1
-          }
-          Branch {
-            Points        [505, 310; 505, 320]
-            Branch {
-              Points        [550, 320; 550, 365]
-              Branch {
-                Points        [780, 365]
-                DstComponent  "Vm3"
-                DstTerminal   1
-              }
-              Branch {
-                DstComponent  "Vm6"
-                DstTerminal   1
-              }
-            }
-            Branch {
-              DstComponent  "Am5"
-              DstTerminal   1
-            }
-          }
-        }
+        Points        [530, 285]
         Branch {
           Points        [420, 285]
           Branch {
@@ -4004,6 +3367,18 @@ Plecs {
             Points        [285, 285]
             DstComponent  "Csb"
             DstTerminal   2
+          }
+        }
+        Branch {
+          Points        [530, 370]
+          Branch {
+            DstComponent  "Q"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [595, 370]
+            DstComponent  "Vm3"
+            DstTerminal   1
           }
         }
       }
@@ -4116,100 +3491,6 @@ Plecs {
       }
     }
     Connection {
-      Type          Signal
-      SrcComponent  "Vm2"
-      SrcTerminal   3
-      Points        [795, 450; 795, 400]
-      Branch {
-        Points        [795, 305]
-        DstComponent  "Vsh / Vd"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "Product"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Product"
-      SrcTerminal   1
-      DstComponent  "Periodic Average1"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Periodic Average1"
-      SrcTerminal   1
-      DstComponent  "Display2"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Co"
-      SrcTerminal   1
-      Points        [820, 140]
-      Branch {
-        Points        [815, 140]
-        Branch {
-          DstComponent  "D1"
-          DstTerminal   2
-        }
-        Branch {
-          DstComponent  "Vm4"
-          DstTerminal   2
-        }
-      }
-      Branch {
-        Points        [835, 140]
-        Branch {
-          Points        [870, 140]
-          Branch {
-            DstComponent  "Vm1"
-            DstTerminal   1
-          }
-          Branch {
-            DstComponent  "Label"
-            DstTerminal   1
-          }
-        }
-        Branch {
-          DstComponent  "Am7"
-          DstTerminal   1
-        }
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Am2"
-      SrcTerminal   1
-      Points        [620, 140]
-      DstComponent  "T"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Am2"
-      SrcTerminal   2
-      Points        [775, 140]
-      Branch {
-        DstComponent  "D1"
-        DstTerminal   1
-      }
-      Branch {
-        DstComponent  "Vm4"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vm4"
-      SrcTerminal   3
-      Points        [795, 80]
-      DstComponent  "Product1"
-      DstTerminal   3
-    }
-    Connection {
       Type          Wire
       SrcComponent  "Rcp"
       SrcTerminal   2
@@ -4283,233 +3564,11 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "Ro"
-      SrcTerminal   1
-      DstComponent  "Am7"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Periodic Average8"
-      SrcTerminal   1
-      DstComponent  "Display14"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Product1"
-      SrcTerminal   1
-      DstComponent  "Periodic Average2"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Periodic Average2"
-      SrcTerminal   1
-      DstComponent  "Display7"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Q"
-      SrcTerminal   1
-      DstComponent  "Am5"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Product2"
-      SrcTerminal   1
-      DstComponent  "Periodic Average3"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vm5"
-      SrcTerminal   3
-      Points        [455, 165; 455, 65]
-      DstComponent  "Product2"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Periodic Average3"
-      SrcTerminal   1
-      DstComponent  "Display9"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Product4"
-      SrcTerminal   1
-      DstComponent  "Periodic Average4"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Periodic Average4"
-      SrcTerminal   1
-      DstComponent  "Display11"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vm7"
-      SrcTerminal   3
-      Points        [345, 145; 245, 145]
-      DstComponent  "Product4"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Product3"
-      SrcTerminal   1
-      Points        [635, 305; 610, 305]
-      DstComponent  "Periodic Average5"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Periodic Average5"
-      SrcTerminal   1
-      DstComponent  "Display10"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "RMS Value6"
-      SrcTerminal   2
-      DstComponent  "Product4"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Am6"
-      SrcTerminal   3
-      Points        [300, 115; 185, 115]
-      DstComponent  "RMS Value6"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Am7"
-      SrcTerminal   3
-      Points        [850, 215]
-      DstComponent  "Periodic Average8"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Am3"
-      SrcTerminal   3
-      Points        [590, 495; 590, 405]
-      DstComponent  "RMS Value3"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "RMS Value3"
-      SrcTerminal   2
-      Points        [655, 405]
-      Branch {
-        Points        [740, 405; 740, 410]
-        DstComponent  "Product"
-        DstTerminal   3
-      }
-      Branch {
-        Points        [655, 375; 560, 375; 560, 280]
-        DstComponent  "Product3"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "RMS Value7"
-      SrcTerminal   2
-      DstComponent  "Product2"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Am4"
-      SrcTerminal   3
-      Points        [445, 55]
-      DstComponent  "RMS Value7"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Am2"
-      SrcTerminal   3
-      Points        [755, 105; 730, 105]
-      DstComponent  "RMS Value8"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "RMS Value8"
-      SrcTerminal   2
-      Points        [790, 80; 790, 70]
-      DstComponent  "Product1"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "RMS Value9"
-      SrcTerminal   2
-      DstComponent  "Ish1"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vm6"
-      SrcTerminal   3
-      Points        [575, 390; 575, 380]
-      Branch {
-        Points        [575, 290]
-        DstComponent  "Product3"
-        DstTerminal   3
-      }
-      Branch {
-        DstComponent  "RMS Value9"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vm4"
-      SrcTerminal   3
-      Points        [795, 90]
-    }
-    Connection {
-      Type          Wire
       SrcComponent  "V_dc"
       SrcTerminal   1
       Points        [270, 520]
       DstComponent  "S3"
       DstTerminal   4
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vm1"
-      SrcTerminal   3
-      Points        [890, 165]
-      Branch {
-        DstComponent  "Periodic Average"
-        DstTerminal   2
-      }
-      Branch {
-        Points        [890, 265]
-        DstComponent  "i_I / V"
-        DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "R4"
-      SrcTerminal   1
-      DstComponent  "Label1"
-      DstTerminal   1
     }
     Connection {
       Type          Wire
@@ -4521,9 +3580,30 @@ Plecs {
         DstTerminal   2
       }
       Branch {
-        Points        [180, 390; 180, 455]
-        DstComponent  "S2"
-        DstTerminal   2
+        Points        [135, 390]
+        Branch {
+          Points        [180, 390; 180, 455]
+          DstComponent  "S2"
+          DstTerminal   2
+        }
+        Branch {
+          Points        [135, 510]
+          Branch {
+            Points        [135, 545]
+            Branch {
+              DstComponent  "C3"
+              DstTerminal   2
+            }
+            Branch {
+              DstComponent  "Ground5"
+              DstTerminal   1
+            }
+          }
+          Branch {
+            DstComponent  "R5"
+            DstTerminal   2
+          }
+        }
       }
     }
     Connection {
@@ -4544,30 +3624,16 @@ Plecs {
       Type          Wire
       SrcComponent  "C1"
       SrcTerminal   1
-      Points        [175, 510]
+      Points        [225, 510]
       Branch {
-        Points        [175, 545]
+        Points        [225, 545]
         DstComponent  "C3"
         DstTerminal   1
       }
       Branch {
-        Points        [175, 490]
+        Points        [225, 490]
         DstComponent  "S3"
         DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "C3"
-      SrcTerminal   2
-      Points        [85, 545]
-      Branch {
-        DstComponent  "R5"
-        DstTerminal   2
-      }
-      Branch {
-        DstComponent  "Ground5"
-        DstTerminal   1
       }
     }
     Connection {
@@ -4575,6 +3641,130 @@ Plecs {
       SrcComponent  "S2"
       SrcTerminal   1
       DstComponent  "UC2844"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Ro"
+      SrcTerminal   1
+      Points        [845, 140]
+      Branch {
+        Points        [795, 140]
+        Branch {
+          DstComponent  "D1"
+          DstTerminal   2
+        }
+        Branch {
+          DstComponent  "Co"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [885, 140]
+        Branch {
+          DstComponent  "Vm1"
+          DstTerminal   1
+        }
+        Branch {
+          DstComponent  "Label"
+          DstTerminal   1
+        }
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm1"
+      SrcTerminal   3
+      Points        [900, 165]
+      Branch {
+        Points        [900, 265]
+        DstComponent  "i_I / V"
+        DstTerminal   2
+      }
+      Branch {
+        DstComponent  "Periodic Average"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "D1"
+      SrcTerminal   1
+      Points        [620, 140]
+      DstComponent  "T"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vm2"
+      SrcTerminal   3
+      Points        [795, 450; 795, 305]
+      DstComponent  "Vsh / Vd"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Q"
+      SrcTerminal   2
+      Points        [530, 415]
+      Branch {
+        Points        [575, 415]
+        DstComponent  "Vm2"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [370, 415; 370, 495]
+        DstComponent  "UC2844"
+        DstTerminal   4
+      }
+      Branch {
+        DstComponent  "R1"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Pulse\nGenerator1"
+      SrcTerminal   1
+      DstComponent  "V"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Tr2"
+      SrcTerminal   1
+      DstComponent  "V"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "V"
+      SrcTerminal   2
+      Points        [80, 200]
+      Branch {
+        DstComponent  "Ground6"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [80, 195; 45, 195; 45, 315]
+        DstComponent  "Tr2"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "R4"
+      SrcTerminal   1
+      Points        [80, 335; 100, 335]
+      DstComponent  "Tr2"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "Label1"
+      SrcTerminal   1
+      Points        [150, 335; 125, 335; 125, 285]
+      DstComponent  "Tr2"
       DstTerminal   3
     }
   }
